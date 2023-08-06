@@ -15,7 +15,7 @@ typeHeaders
 	GMonteCarloSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2099;
 	MonteCarloTests subclassOf JadeTestCase number = 2109;
 	ModelData subclassOf Object number = 2102;
-	MarginOfError subclassOf ModelData highestOrdinal = 3, number = 2110;
+	MarginOfError subclassOf ModelData highestOrdinal = 4, number = 2110;
 	Party subclassOf ModelData highestOrdinal = 3, number = 2103;
 	Poll subclassOf ModelData highestSubId = 1, highestOrdinal = 4, number = 2108;
 	PollDatum subclassOf ModelData highestSubId = 1, highestOrdinal = 7, number = 2106;
@@ -61,7 +61,7 @@ typeDefinitions
 		getRandomPercentFromRange(
 			datum: PollDatum; 
 			seed: Integer io): Real number = 1007;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:19:33:17.431;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:19:41:27.678;
 		makeRandomPoll(
 			poll: Poll; 
 			seed: Integer io): Poll number = 1005;
@@ -116,11 +116,18 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 1 2023:08:05:21:51:25.445;
 		moe:                           Real number = 3, ordinal = 3;
 		setModifiedTimeStamp "Carlin" "22.0.02" 1 2023:08:05:22:05:34.918;
+	referenceDefinitions
+		possibilities:                 RealArray  number = 4, ordinal = 4;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:19:38:00.351;
 	jadeMethodDefinitions
 		create(
 			percent: Real; 
 			moe_: Real) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 1 2023:08:05:22:05:52.969;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:19:40:16.310;
+		delete() updating, number = 1003;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:19:42:16.438;
+		generatePossibilities() updating, number = 1002;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:19:45:53.374;
 	)
 	Party completeDefinition
 	(
@@ -477,26 +484,11 @@ getRandomPercentFromRange(datum : PollDatum; seed : Integer io) : Real;
 // another attempt to compensate for jade's rng, slower but should be more accurate
 vars
 	rand 	: Integer;
-	ra 		: RealArray;
-	cur		: Real;
 begin
-	create ra transient;
-	
-	cur := datum.moe.low;
-	
-	while cur < datum.moe.high do
-		cur := cur + 0.0001;
-		if cur < datum.moe.high then
-			ra.add(cur);
-		endif;
-	endwhile;
-	
 	// -1 to account for 0
-	rand := app.random31(seed, ra.size() - 1);
+	rand := app.random31(seed, datum.moe.possibilities.size() - 1);
 	
-	return ra[rand + 1];
-epilog
-	delete ra;
+	return datum.moe.possibilities[rand + 1];
 end;
 
 }
@@ -665,6 +657,34 @@ begin
 	high 	:= percent + moe_;
 	low 	:= percent - moe_;
 	moe		:= moe_;
+	
+	self.generatePossibilities();
+end;
+}
+delete
+{
+delete() updating;
+
+vars
+
+begin
+	delete self.possibilities;
+end;
+}
+generatePossibilities
+{
+generatePossibilities() updating;
+
+vars
+	cur		: Real;
+begin
+	create self.possibilities transient;
+
+	cur := self.low;
+	while cur < self.high do
+		possibilities.add(cur);
+		cur := cur + 0.001;
+	endwhile;
 end;
 }
 	)

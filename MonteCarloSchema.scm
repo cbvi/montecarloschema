@@ -15,10 +15,10 @@ typeHeaders
 	GMonteCarloSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2099;
 	MonteCarloTests subclassOf JadeTestCase number = 2109;
 	ModelData subclassOf Object number = 2102;
-	MarginOfError subclassOf ModelData highestOrdinal = 4, number = 2110;
+	MarginOfError subclassOf ModelData highestSubId = 1, highestOrdinal = 5, number = 2110;
 	Party subclassOf ModelData highestOrdinal = 3, number = 2103;
 	Poll subclassOf ModelData highestSubId = 1, highestOrdinal = 4, number = 2108;
-	PollDatum subclassOf ModelData highestSubId = 1, highestOrdinal = 7, number = 2106;
+	PollDatum subclassOf ModelData highestSubId = 1, highestOrdinal = 9, number = 2106;
 	StatCollector subclassOf ModelData highestOrdinal = 7, number = 2111;
 	SMonteCarloSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2100;
 	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestSubId = 1, highestOrdinal = 9, number = 2101;
@@ -159,11 +159,11 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 1 2023:08:05:19:14:20.339;
 	jadeMethodDefinitions
 		addDatum(
-			name: String; 
+			name_: String; 
 			percent: Decimal; 
 			colour: Integer; 
 			noThreshold: Boolean) number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 1 2023:08:05:21:49:50.214;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:21:41:31.580;
 		delete() updating, number = 1003;
 		setModifiedTimeStamp "Carlin" "22.0.02" 1 2023:08:05:23:11:15.373;
 		dumpSkewRanges() number = 1002;
@@ -317,6 +317,8 @@ databaseDefinitions
 	(
 	setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:05:13:39:25.622;
 	databaseFileDefinitions
+		"possibilities" number = 60;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2 2023:08:06:20:43:13.815;
 		"montecarloschema" number = 59;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:05:13:39:25.623;
 	defaultFileDefinition "montecarloschema";
@@ -490,7 +492,6 @@ begin
 	
 	return datum.moe.possibilities[rand + 1];
 end;
-
 }
 makeRandomPoll
 {
@@ -707,12 +708,12 @@ end;
 	jadeMethodSources
 addDatum
 {
-addDatum(name : String; percent : Decimal; colour : Integer; noThreshold : Boolean);
+addDatum(name_ : String; percent : Decimal; colour : Integer; noThreshold : Boolean);
 
 vars
 	datum : PollDatum;
 begin
-	datum := create PollDatum(name, percent, colour, noThreshold, self) transient;
+	datum := create PollDatum(name_, percent, colour, noThreshold, self) transient;
 end;
 }
 delete

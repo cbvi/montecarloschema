@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema name="MonteCarloMultiSchema" JadeVersionNumber="22.0.02" JadePatchNumber="0" CompleteDefinition="true">
+	<Application name="MonteCarloMultiSchema">
+		<__overridePatchNumber>0</__overridePatchNumber>
+		<__patchControlString/>
+		<_aboutFormName/>
+		<_defaultLocaleId>0</_defaultLocaleId>
+		<_modifiedBy/>
+		<_modifiedTimestamp/>
+		<_patchVersion>0</_patchVersion>
+		<_startupFormName>ParliamentForm</_startupFormName>
+		<_systemVersion/>
+		<aboutForm/>
+		<appVersion/>
+		<applicationType>G</applicationType>
+		<controlSpacing>0</controlSpacing>
+		<defaultApp>true</defaultApp>
+		<defaultMdi>false</defaultMdi>
+		<finalizeMethod/>
+		<fontBold>false</fontBold>
+		<fontName>Tahoma</fontName>
+		<fontSize>8.25</fontSize>
+		<formMargin>0</formMargin>
+		<heightSingleLineControl>0</heightSingleLineControl>
+		<helpFile/>
+		<icon/>
+		<initializeMethod/>
+		<mdiStyle>0</mdiStyle>
+		<mdiWindowListOrder>0</mdiWindowListOrder>
+		<name>MonteCarloMultiSchema</name>
+		<showBubbleHelp>false</showBubbleHelp>
+		<startupForm/>
+		<useBorderStyleOnly>false</useBorderStyleOnly>
+		<webMinimumResponseTime>0</webMinimumResponseTime>
+		<threeDControls>
+			<GUIClass name="GroupBox" />
+			<GUIClass name="OptionButton" />
+			<GUIClass name="CheckBox" />
+		</threeDControls>
+	</Application>
+
+	<PainterControlDefinition name="ParliamentControl">
+		<bitmap/>
+		<bitmapDisabled/>
+		<bitmapDown/>
+		<bitmapID>0</bitmapID>
+		<bitmapOver/>
+		<darkBitmap/>
+		<darkBitmapDisabled/>
+		<darkBitmapDown/>
+		<darkBitmapOver/>
+		<hideFromPainterControlPalette>false</hideFromPainterControlPalette>
+		<name>ParliamentControl</name>
+		<windowClass>AlBaseControl</windowClass>
+		<PainterControlProperties>
+			<PainterControlProperty name="backBrush">
+				<cntrlType>11</cntrlType>
+				<name>backBrush</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="backBrushStyle">
+				<cntrlType>100</cntrlType>
+				<name>backBrushStyle</name>
+				<parent name="ParliamentControl" />
+				<PainterControlPropertyOptions>
+					<String>0 - tile</String>
+					<String>1 - stretch</String>
+					<String>2 - center</String>
+					<String>3 - stretch proportional</String>
+				</PainterControlPropertyOptions>
+			</PainterControlProperty>
+			<PainterControlProperty name="backColor">
+				<cntrlType>7</cntrlType>
+				<name>backColor</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="borderColorSingle">
+				<cntrlType>7</cntrlType>
+				<name>borderColorSingle</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="borderStyle">
+				<cntrlType>100</cntrlType>
+				<name>borderStyle</name>
+				<parent name="ParliamentControl" />
+				<PainterControlPropertyOptions>
+					<String>0 - None</String>
+					<String>1 - Single</String>
+					<String>2 - 3D sunken</String>
+					<String>3 - 3D raised</String>
+				</PainterControlPropertyOptions>
+			</PainterControlProperty>
+			<PainterControlProperty name="bubbleHelp">
+				<cntrlType>16</cntrlType>
+				<name>bubbleHelp</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="clipControls">
+				<cntrlType>3</cntrlType>
+				<name>clipControls</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="description">
+				<cntrlType>16</cntrlType>
+				<name>description</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="dragCursor">
+				<cntrlType>11</cntrlType>
+				<name>dragCursor</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="enabled">
+				<cntrlType>3</cntrlType>
+				<name>enabled</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="focusBackColor">
+				<cntrlType>7</cntrlType>
+				<name>focusBackColor</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="focusForeColor">
+				<cntrlType>7</cntrlType>
+				<name>focusForeColor</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="fontBold">
+				<cntrlType>3</cntrlType>
+				<name>fontBold</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="fontItalic">
+				<cntrlType>3</cntrlType>
+				<name>fontItalic</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="fontName">
+				<cntrlType>8</cntrlType>
+				<name>fontName</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="fontSize">
+				<cntrlType>9</cntrlType>
+				<name>fontSize</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="fontStrikethru">
+				<cntrlType>3</cntrlType>
+				<name>fontStrikethru</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="fontUnderline">
+				<cntrlType>3</cntrlType>
+				<name>fontUnderline</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="foreColor">
+				<cntrlType>7</cntrlType>
+				<name>foreColor</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="height">
+				<cntrlType>14</cntrlType>
+				<name>height</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="helpContextId">
+				<cntrlType>4</cntrlType>
+				<name>helpContextId</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="helpKeyword">
+				<cntrlType>2</cntrlType>
+				<name>helpKeyword</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="ignoreSkin">
+				<cntrlType>3</cntrlType>
+				<name>ignoreSkin</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="left">
+				<cntrlType>14</cntrlType>
+				<name>left</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="mouseCursor">
+				<cntrlType>11</cntrlType>
+				<name>mouseCursor</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="mousePointer">
+				<cntrlType>100</cntrlType>
+				<name>mousePointer</name>
+				<parent name="ParliamentControl" />
+				<PainterControlPropertyOptions>
+					<String> 0 - Default</String>
+					<String> 1 - Arrow</String>
+					<String> 2 - Cross</String>
+					<String> 3 - I-Beam</String>
+					<String> 4 - Cursor</String>
+					<String> 5 - Size</String>
+					<String> 6 - Size NE SW</String>
+					<String> 7 - Size N S</String>
+					<String> 8 - Size NW SE</String>
+					<String> 9 - Size W E</String>
+					<String>10 - Up Arrow</String>
+					<String>11 - HourGlass</String>
+					<String>12 - No Drop</String>
+					<String>13 - Drag</String>
+					<String>14 - Horizontal line move</String>
+					<String>15 - Vertical Line move</String>
+					<String>16 - Hand Pointing</String>
+				</PainterControlPropertyOptions>
+			</PainterControlProperty>
+			<PainterControlProperty name="name">
+				<cntrlType>1</cntrlType>
+				<name>name</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="parent">
+				<cntrlType>-102</cntrlType>
+				<name>parent</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="parentAspect">
+				<cntrlType>100</cntrlType>
+				<name>parentAspect</name>
+				<parent name="ParliamentControl" />
+				<PainterControlPropertyOptions>
+					<String> 0 - None</String>
+					<String> 1 - Stretch Right</String>
+					<String> 2 - Stretch Bottom</String>
+					<String> 3 - Stretch Both</String>
+					<String> 4 - Anchor Right</String>
+					<String> 6 - Anchor Right &amp; Stretch Bottom</String>
+					<String> 8 - Anchor Bottom</String>
+					<String> 9 - Anchor Bottom &amp; Stretch Right</String>
+					<String>12 - Anchor Both</String>
+					<String>16 - Center Horz</String>
+					<String>18 - Center Horz &amp; Stretch Bottom</String>
+					<String>24 - Center Horz &amp; Anchor bottom</String>
+					<String>32 - Center Vert</String>
+					<String>33 - Center Vert &amp; Stretch Right</String>
+					<String>36 - Center Vert &amp; Anchor Right</String>
+					<String>48 - Center Both</String>
+				</PainterControlPropertyOptions>
+			</PainterControlProperty>
+			<PainterControlProperty name="parentBottomOffset">
+				<cntrlType>14</cntrlType>
+				<name>parentBottomOffset</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="parentRightOffset">
+				<cntrlType>14</cntrlType>
+				<name>parentRightOffset</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="relativeHeight">
+				<cntrlType>3</cntrlType>
+				<name>relativeHeight</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="relativeLeft">
+				<cntrlType>3</cntrlType>
+				<name>relativeLeft</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="relativeTop">
+				<cntrlType>3</cntrlType>
+				<name>relativeTop</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="relativeWidth">
+				<cntrlType>3</cntrlType>
+				<name>relativeWidth</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="scrollBars">
+				<cntrlType>100</cntrlType>
+				<name>scrollBars</name>
+				<parent name="ParliamentControl" />
+				<PainterControlPropertyOptions>
+					<String>0 - None</String>
+					<String>1 - Horizontal</String>
+					<String>2 - Vertical</String>
+					<String>3 - Both</String>
+				</PainterControlPropertyOptions>
+			</PainterControlProperty>
+			<PainterControlProperty name="seatsGap">
+				<cntrlType>14</cntrlType>
+				<name>seatsGap</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="seatsHeight">
+				<cntrlType>14</cntrlType>
+				<name>seatsHeight</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="seatsPadding">
+				<cntrlType>14</cntrlType>
+				<name>seatsPadding</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="seatsWidth">
+				<cntrlType>14</cntrlType>
+				<name>seatsWidth</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="securityLevelEnabled">
+				<cntrlType>4</cntrlType>
+				<name>securityLevelEnabled</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="securityLevelVisible">
+				<cntrlType>4</cntrlType>
+				<name>securityLevelVisible</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="show3D">
+				<cntrlType>100</cntrlType>
+				<name>show3D</name>
+				<parent name="ParliamentControl" />
+				<PainterControlPropertyOptions>
+					<String>0 - use application default</String>
+					<String>1 - Not 3D</String>
+					<String>2 - Use 3D</String>
+					<String>3 - Use borderStyle</String>
+				</PainterControlPropertyOptions>
+			</PainterControlProperty>
+			<PainterControlProperty name="skinCategoryName">
+				<cntrlType>2</cntrlType>
+				<name>skinCategoryName</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="tabIndex">
+				<cntrlType>4</cntrlType>
+				<name>tabIndex</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="tabStop">
+				<cntrlType>3</cntrlType>
+				<name>tabStop</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="tag">
+				<cntrlType>2</cntrlType>
+				<name>tag</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="top">
+				<cntrlType>14</cntrlType>
+				<name>top</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="transparent">
+				<cntrlType>3</cntrlType>
+				<name>transparent</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="visible">
+				<cntrlType>3</cntrlType>
+				<name>visible</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+			<PainterControlProperty name="width">
+				<cntrlType>14</cntrlType>
+				<name>width</name>
+				<parent name="ParliamentControl" />
+			</PainterControlProperty>
+		</PainterControlProperties>
+	</PainterControlDefinition>
+	<Form locale="5129" name="ParliamentForm">
+		<allowDocking>0</allowDocking>
+		<backBrush/>
+		<backBrushStyle>0</backBrushStyle>
+		<backColor>-2147483633</backColor>
+		<borderStyle>2</borderStyle>
+		<bubbleHelp/>
+		<caption>ParliamentForm</caption>
+		<clientHeight>588</clientHeight>
+		<clientWidth>910</clientWidth>
+		<clipControls>true</clipControls>
+		<controlBox>true</controlBox>
+		<description/>
+		<disableReason/>
+		<dragCursor/>
+		<enabled>true</enabled>
+		<height>627</height>
+		<helpContextId>0</helpContextId>
+		<helpKeyword/>
+		<icon/>
+		<ignoreSkin>false</ignoreSkin>
+		<ignoreSkinAllControls>false</ignoreSkinAllControls>
+		<left>0</left>
+		<maxButton>true</maxButton>
+		<mdiChild>0</mdiChild>
+		<mdiFrame>false</mdiFrame>
+		<mdiPinned>false</mdiPinned>
+		<minButton>true</minButton>
+		<minimumHeight>0</minimumHeight>
+		<minimumWidth>0</minimumWidth>
+		<mouseCursor/>
+		<mousePointer>0</mousePointer>
+		<name>ParliamentForm</name>
+		<paintedDialogBaseUnits>1048584</paintedDialogBaseUnits>
+		<printerForm>false</printerForm>
+		<scaleForm>true</scaleForm>
+		<scrollBars>0</scrollBars>
+		<secureForm>false</secureForm>
+		<securityLevelEnabled>0</securityLevelEnabled>
+		<securityLevelVisible>0</securityLevelVisible>
+		<showMdiCloseAllButPinnedMenu>false</showMdiCloseAllButPinnedMenu>
+		<showMdiCloseAllButThisMenu>false</showMdiCloseAllButThisMenu>
+		<showMdiCloseMenu>false</showMdiCloseMenu>
+		<showMdiDockMenu>false</showMdiDockMenu>
+		<showMdiFloatMenu>false</showMdiFloatMenu>
+		<showMdiPinMenu>false</showMdiPinMenu>
+		<skinCategoryName/>
+		<tag/>
+		<top>0</top>
+		<userScript/>
+		<visible>true</visible>
+		<webBrowserAutoRefreshInterval>0</webBrowserAutoRefreshInterval>
+		<webBrowserAutoRefreshURL/>
+		<webBrowserDisableBackButton>false</webBrowserDisableBackButton>
+		<webEncodingType/>
+		<webFileName/>
+		<width>926</width>
+		<windowState>0</windowState>
+		<controlList>
+			<ParliamentControl name="parliamentCommon">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>180</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>21</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentCommon</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>386</parentBottomOffset>
+				<parentRightOffset>458</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>30</seatsGap>
+				<seatsHeight>10</seatsHeight>
+				<seatsPadding>20</seatsPadding>
+				<seatsWidth>10</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>10</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>22</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>431</width>
+			</ParliamentControl>
+			<ParliamentControl name="parliamentControl8">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>679</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl8</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>185</parentBottomOffset>
+				<parentRightOffset>19</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>9</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>312</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+			<ParliamentControl name="parliamentControl7">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>459</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl7</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>185</parentBottomOffset>
+				<parentRightOffset>239</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>8</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>312</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+			<ParliamentControl name="parliamentControl5">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>19</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl5</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>185</parentBottomOffset>
+				<parentRightOffset>679</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>7</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>312</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+			<ParliamentControl name="parliamentControl6">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>239</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl6</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>185</parentBottomOffset>
+				<parentRightOffset>459</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>6</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>312</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+			<ParliamentControl name="parliamentControl4">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>680</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl4</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>285</parentBottomOffset>
+				<parentRightOffset>18</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>5</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>212</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+			<ParliamentControl name="parliamentControl3">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>460</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl3</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>285</parentBottomOffset>
+				<parentRightOffset>238</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>4</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>212</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+			<ParliamentControl name="parliamentControl2">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>240</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl2</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>285</parentBottomOffset>
+				<parentRightOffset>458</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>3</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>212</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+			<Button name="button1">
+				<autoSize>1</autoSize>
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483633</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<buttonPicture>0</buttonPicture>
+				<cancel>false</cancel>
+				<caption>Button1</caption>
+				<default>false</default>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483630</foreColor>
+				<form name="ParliamentForm" />
+				<height>37</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>75</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>button1</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>65</parentBottomOffset>
+				<parentRightOffset>727</parentRightOffset>
+				<picture/>
+				<pictureDisabled/>
+				<pictureDown/>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<style>0</style>
+				<tabIndex>2</tabIndex>
+				<tabStop>true</tabStop>
+				<tag/>
+				<top>486</top>
+				<userScript/>
+				<value>false</value>
+				<visible>true</visible>
+				<webFileName/>
+				<width>108</width>
+			</Button>
+			<ParliamentControl name="parliamentControl1">
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483643</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<clipControls>true</clipControls>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<height>91</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>20</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>parliamentControl1</name>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>285</parentBottomOffset>
+				<parentRightOffset>678</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<scrollBars>0</scrollBars>
+				<seatsGap>15</seatsGap>
+				<seatsHeight>5</seatsHeight>
+				<seatsPadding>10</seatsPadding>
+				<seatsWidth>5</seatsWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>1</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>212</top>
+				<transparent>false</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>212</width>
+			</ParliamentControl>
+		</controlList>
+		<menuList>
+		</menuList>
+	</Form>
+</schema>

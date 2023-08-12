@@ -20,11 +20,12 @@ typeHeaders
 	Patterniser subclassOf DataModel highestOrdinal = 7, number = 2130;
 	Poll subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2119;
 	RandomisedPoll subclassOf DataModel highestSubId = 1, highestOrdinal = 1, number = 2125;
-	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 2, number = 2126;
+	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2126;
 	StatCollector subclassOf DataModel highestSubId = 1, highestOrdinal = 8, number = 2129;
+	StaleDataException subclassOf Exception transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2132;
 	GMonteCarloMultiSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2112;
 	ProcessControl subclassOf Object number = 2127;
-	Controller subclassOf ProcessControl highestOrdinal = 2, number = 2128;
+	Controller subclassOf ProcessControl highestOrdinal = 3, number = 2128;
 	SMonteCarloMultiSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2113;
 	ParliamentControl subclassOf BaseControl transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 4, number = 2114;
 	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 14, number = 2118;
@@ -68,9 +69,9 @@ typeDefinitions
 			p7: ParliamentControl io; 
 			p8: ParliamentControl io; 
 			info: Label io) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:42:09.374;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:12:13.384;
 		simulationWorkerApp(controller: Controller) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:02:46.529;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:08:39.878;
 		stopSimulation() updating, number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:54:13.398;
 	)
@@ -191,7 +192,7 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:39.576;
 	jadeMethodDefinitions
 		createPartyArray(): PartyArray number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:39:11.104;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:47:03.753;
 	)
 	Poll completeDefinition
 	(
@@ -222,12 +223,14 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:35:49.492;
 	jadeMethodDefinitions
 		generateParties(workerId: Integer): SimulationResult number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:48:47.945;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:08:34.335;
 	)
 	SimulationResult completeDefinition
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:23:12.143;
 	attributeDefinitions
+		pollName:                      String[51] number = 3, ordinal = 3;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:05:58.547;
 		workerId:                      Integer number = 2, ordinal = 2;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:23:49.749;
 	referenceDefinitions
@@ -269,6 +272,13 @@ typeDefinitions
 		pcnt(i: Integer): String protected, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:09.937;
 	)
+	Exception completeDefinition
+	(
+	)
+	StaleDataException completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:09:58.498;
+	)
 	Global completeDefinition
 	(
 	)
@@ -283,7 +293,7 @@ typeDefinitions
 	(
 	jadeMethodDefinitions
 		runPoll_curia__08_03to08() number = 1002;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:12:07.271;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:59:58.226;
 		runPoll_reid__07_26to31() number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:01:46.565;
 	)
@@ -295,6 +305,8 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:45:20.695;
 	attributeDefinitions
+		pollName:                      String[51] number = 3, ordinal = 3;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:05:18.808;
 		running:                       Boolean number = 1, ordinal = 1;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:45:28.383;
 		workerId:                      Integer number = 2, ordinal = 2;
@@ -469,6 +481,7 @@ databaseDefinitions
 		RandomisedPoll in "montecarlomultischema";
 		SMonteCarloMultiSchema in "_environ";
 		SimulationResult in "montecarlomultischema";
+		StaleDataException in "montecarlomultischema";
 		StatCollector in "montecarlomultischema";
 	)
 typeSources
@@ -491,12 +504,12 @@ runSimulation(
 
 vars
 	simResult : SimulationResult;
-	randPoll : RandomisedPoll;
 	controller : Controller;
 	i : Integer;
 	controlArray : ObjectArray;
 	stats : StatCollector;
 	patternArray : PartyArray;
+	staleEx : StaleDataException;
 begin
 	running := true;
 	
@@ -511,6 +524,7 @@ begin
 		create controller sharedTransient;
 		controller.running := true;
 		controller.workerId := i;
+		controller.pollName := thePoll.name;
 		commitTransientTransaction;
 		controlArray.add(controller);
 		
@@ -526,6 +540,12 @@ begin
 	while running do
 		
 		simResult := SimulationResult.firstInstance;
+		
+		if simResult.pollName <> thePoll.name then
+			create staleEx transient;
+			staleEx.extendedErrorText := "Got: '" & simResult.pollName & "', Expected: '" & thePoll.name & "'";
+			raise staleEx;
+		endif;
 	
 		if 		simResult.workerId = 1 then
 			p1.drawSeats(simResult.parties);
@@ -571,14 +591,15 @@ begin
 	endforeach;
 	commitTransientTransaction;	
 epilog
-	//delete results;
-	delete randPoll;
-	delete controlArray;
-	
 	beginTransaction;
 	SimulationResult.instances.purge();
 	commitTransaction;
 	
+	beginTransientTransaction;
+	controlArray.purge();
+	commitTransientTransaction;
+	
+	delete controlArray;
 	delete stats;
 end;
 }
@@ -778,10 +799,10 @@ begin
 	party := create Party("National", national, Blue) transient;
 	parties.add(party);
 	
-	party := create Party("NZF", nzf, Black) transient;
+	party := create Party("Act", act, Yellow) transient;
 	parties.add(party);
 	
-	party := create Party("Act", act, Yellow) transient;
+	party := create Party("NZF", nzf, Black) transient;
 	parties.add(party);
 	
 	party := create Party("TPM", tpm, DarkRed) transient;
@@ -864,6 +885,7 @@ begin
 	beginTransaction;
 	create simResult persistent;
 	simResult.workerId := workerId;
+	simResult.pollName := app.thePoll.name;
 
 	foreach figment in figments do
 		simResult.parties.addFromFigment(figment);
@@ -1039,8 +1061,8 @@ begin
 	app.thePoll.sampleSize := 1000;
 	
 	app.thePoll.addDatum("National", 34.9, Blue, true);
-	app.thePoll.addDatum("NZF", 5.8, Black, false);
 	app.thePoll.addDatum("Act", 13.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 5.8, Black, false);
 	app.thePoll.addDatum("TPM", 2.5, DarkRed, true);
 	app.thePoll.addDatum("Green", 12.0, Green, true);
 	app.thePoll.addDatum("Labour", 27.1, Red, true);

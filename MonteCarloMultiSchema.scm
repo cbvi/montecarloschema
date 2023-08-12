@@ -17,20 +17,23 @@ typeHeaders
 	Figment subclassOf DataModel highestOrdinal = 4, number = 2123;
 	Margin subclassOf DataModel highestOrdinal = 4, number = 2122;
 	Party subclassOf DataModel highestOrdinal = 3, number = 2116;
+	Patterniser subclassOf DataModel highestOrdinal = 7, number = 2130;
 	Poll subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2119;
 	RandomisedPoll subclassOf DataModel highestSubId = 1, highestOrdinal = 1, number = 2125;
 	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 2, number = 2126;
-	StatCollector subclassOf DataModel highestOrdinal = 6, number = 2129;
+	StatCollector subclassOf DataModel highestSubId = 1, highestOrdinal = 8, number = 2129;
 	GMonteCarloMultiSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2112;
 	ProcessControl subclassOf Object number = 2127;
 	Controller subclassOf ProcessControl highestOrdinal = 2, number = 2128;
 	SMonteCarloMultiSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2113;
 	ParliamentControl subclassOf BaseControl transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 4, number = 2114;
 	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 14, number = 2118;
+	PatterniserDict subclassOf MemberKeyDictionary loadFactor = 66, number = 2131;
 	FigmentArray subclassOf ObjectArray number = 2124;
 	PartyArray subclassOf ObjectArray number = 2117;
 	PollDataArray subclassOf ObjectArray number = 2121;
 membershipDefinitions
+	PatterniserDict of Patterniser;
 	FigmentArray of Figment;
 	PartyArray of Party;
 	PollDataArray of Datum;
@@ -55,6 +58,7 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:06:32.299;
 	jadeMethodDefinitions
 		runSimulation(
+			p0: ParliamentControl io; 
 			p1: ParliamentControl io; 
 			p2: ParliamentControl io; 
 			p3: ParliamentControl io; 
@@ -64,7 +68,7 @@ typeDefinitions
 			p7: ParliamentControl io; 
 			p8: ParliamentControl io; 
 			info: Label io) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:48:15.922;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:42:09.374;
 		simulationWorkerApp(controller: Controller) updating, number = 1003;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:02:46.529;
 		stopSimulation() updating, number = 1002;
@@ -167,6 +171,28 @@ typeDefinitions
 			colour_: Integer) updating, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:44:26.086;
 	)
+	Patterniser completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:02:46.133;
+	attributeDefinitions
+		act:                           Integer number = 1, ordinal = 1;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:12.190;
+		count:                         Integer number = 7, ordinal = 7;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:59.685;
+		green:                         Integer number = 2, ordinal = 2;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:18.799;
+		labour:                        Integer number = 3, ordinal = 3;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:25.870;
+		national:                      Integer number = 4, ordinal = 4;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:31.461;
+		nzf:                           Integer number = 6, ordinal = 6;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:44.899;
+		tpm:                           Integer number = 5, ordinal = 5;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:39.576;
+	jadeMethodDefinitions
+		createPartyArray(): PartyArray number = 1001;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:39:11.104;
+	)
 	Poll completeDefinition
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:51:44.336;
@@ -212,6 +238,8 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:32:43.252;
 	attributeDefinitions
+		countCommon:                   Integer protected, number = 8, ordinal = 8;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:41:23.102;
 		countHung:                     Integer protected, number = 1, ordinal = 1;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:24.930;
 		countNZFBack:                  Integer protected, number = 2, ordinal = 2;
@@ -224,11 +252,20 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:55.409;
 		winsNA:                        Integer protected, number = 6, ordinal = 6;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:04.081;
+	referenceDefinitions
+		patternDict:                   PatterniserDict  implicitMemberInverse, subId = 1, number = 7, ordinal = 7;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:06:49.772;
 	jadeMethodDefinitions
+		addPattern(parties: PartyArray) updating, number = 1004;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:46:04.424;
 		crunchNumbers(parties: PartyArray) updating, number = 1002;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:35:02.876;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:16:07.088;
+		delete() updating, number = 1005;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:15:50.506;
+		findCommonPattern(): PartyArray updating, number = 1006;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:47:28.835;
 		getInfo(): String number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:35:11.427;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:42:58.022;
 		pcnt(i: Integer): String protected, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:09.937;
 	)
@@ -342,7 +379,7 @@ typeDefinitions
 		button1_click(btn: Button input) updating, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:29:57.020;
 		button2_click(btn: Button input) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:37:15.290;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:35:36.753;
 		button3_click(btn: Button input) updating, number = 1004;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:56:04.160;
 		load() updating, number = 1002;
@@ -355,6 +392,19 @@ typeDefinitions
 	)
 	Collection completeDefinition
 	(
+	)
+	Btree completeDefinition
+	(
+	)
+	Dictionary completeDefinition
+	(
+	)
+	MemberKeyDictionary completeDefinition
+	(
+	)
+	PatterniserDict completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:04:41.764;
 	)
 	List completeDefinition
 	(
@@ -380,6 +430,16 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:52:52.203;
 	)
+memberKeyDefinitions
+	PatterniserDict completeDefinition
+	(
+		act;
+		green;
+		labour;
+		national;
+		nzf;
+		tpm;
+	)
 inverseDefinitions
 	data of Poll automatic parentOf myPoll of Datum manual;
 	figments of RandomisedPoll automatic parentOf myRandPoll of Figment manual;
@@ -404,6 +464,8 @@ databaseDefinitions
 		ParliamentControl in "_usergui";
 		Party in "montecarlomultischema";
 		PartyArray in "montecarlomultischema";
+		Patterniser in "montecarlomultischema";
+		PatterniserDict in "montecarlomultischema";
 		Poll in "montecarlomultischema";
 		PollDataArray in "montecarlomultischema";
 		ProcessControl in "montecarlomultischema";
@@ -418,6 +480,7 @@ typeSources
 runSimulation
 {
 runSimulation(
+	p0 : ParliamentControl io;
 	p1 : ParliamentControl io;
 	p2 : ParliamentControl io;
 	p3 : ParliamentControl io;
@@ -436,8 +499,13 @@ vars
 	i : Integer;
 	controlArray : ObjectArray;
 	stats : StatCollector;
+	patternArray : PartyArray;
 begin
 	running := true;
+	
+	beginTransaction;
+	SimulationResult.instances.purge();
+	commitTransaction;
 	
 	create controlArray transient;
 	
@@ -481,6 +549,12 @@ begin
 		endif;
 		
 		stats.crunchNumbers(simResult.parties);
+		
+		patternArray := stats.findCommonPattern();
+		p0.drawSeats(patternArray);
+		patternArray.purge();
+		delete patternArray;
+		
 		info.caption := stats.getInfo();
 
 		beginTransaction;
@@ -692,6 +766,40 @@ begin
 end;
 }
 	)
+	Patterniser (
+	jadeMethodSources
+createPartyArray
+{
+createPartyArray() : PartyArray;
+
+vars
+	parties : PartyArray;
+	party : Party;
+begin
+	create parties transient;
+
+	party := create Party("National", national, Blue) transient;
+	parties.add(party);
+	
+	party := create Party("NZF", nzf, Black) transient;
+	parties.add(party);
+	
+	party := create Party("Act", act, Yellow) transient;
+	parties.add(party);
+	
+	party := create Party("TPM", tpm, DarkRed) transient;
+	parties.add(party);
+	
+	party := create Party("Green", green, Green) transient;
+	parties.add(party);
+	
+	party := create Party("Labour", labour, Red) transient;
+	parties.add(party);
+	
+	return parties;
+end;
+}
+	)
 	Poll (
 	jadeMethodSources
 addDatum
@@ -771,6 +879,43 @@ end;
 	)
 	StatCollector (
 	jadeMethodSources
+addPattern
+{
+addPattern(parties : PartyArray) updating;
+
+vars
+	pattern : Patterniser;
+	exist : Patterniser;
+	party : Party;
+begin
+	create pattern transient;
+
+	foreach party in parties do
+		if party.name = "Act" then
+			pattern.act := party.seats;
+		elseif party.name = "National" then
+			pattern.national := party.seats;
+		elseif party.name = "Labour" then
+			pattern.labour := party.seats;
+		elseif party.name = "Green" then
+			pattern.green := party.seats;
+		elseif party.name = "TPM" then
+			pattern.tpm := party.seats;
+		elseif party.name = "NZF" then
+			pattern.nzf := party.seats;
+		endif;
+	endforeach;
+	
+	exist := patternDict.getAtKey(pattern.act, pattern.green, pattern.labour, pattern.national, pattern.nzf, pattern.tpm);
+	if exist <> null then
+		exist.count := exist.count + 1;
+		delete pattern;
+	else
+		pattern.count := 1;
+		patternDict.add(pattern);
+	endif;
+end;
+}
 crunchNumbers
 {
 crunchNumbers(parties : PartyArray) updating; //: Integer updating;
@@ -819,7 +964,40 @@ begin
 		endif;
 	endif;
 	
+	addPattern(parties);
+	
 	//return Result_Hung;
+end;
+}
+delete
+{
+delete() updating;
+
+vars
+
+begin
+	patternDict.purge();
+end;
+}
+findCommonPattern
+{
+findCommonPattern() : PartyArray updating;
+
+vars
+	common : Patterniser;
+	pattern : Patterniser;
+	cur : Integer;
+begin
+	foreach pattern in patternDict do
+		if pattern.count > cur then
+			common := pattern;
+			cur := pattern.count;
+		endif;
+	endforeach;
+	
+	countCommon := cur;
+	
+	return common.createPartyArray();
 end;
 }
 getInfo
@@ -834,7 +1012,8 @@ begin
 			"L+G+M wins: " & pcnt(winsLGM) & CrLf &
 			"NZF back: " & pcnt(countNZFBack) & CrLf &
 			"NZF decides: " & pcnt(countNZFKingMaker) & CrLf &
-			"Hung parliament: " & pcnt(countHung);
+			"Hung parliament: " & pcnt(countHung) & CrLf & CrLf &
+			"Common result appeared: " & pcnt(countCommon);
 end;
 }
 pcnt
@@ -990,6 +1169,7 @@ vars
 
 begin
 	app.runSimulation(
+		parliamentCommon,
 		parliamentControl1,
 		parliamentControl2,
 		parliamentControl3,

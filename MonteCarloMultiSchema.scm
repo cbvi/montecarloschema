@@ -20,12 +20,13 @@ typeHeaders
 	Poll subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2119;
 	RandomisedPoll subclassOf DataModel highestSubId = 1, highestOrdinal = 1, number = 2125;
 	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 2, number = 2126;
+	StatCollector subclassOf DataModel highestOrdinal = 6, number = 2129;
 	GMonteCarloMultiSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2112;
 	ProcessControl subclassOf Object number = 2127;
 	Controller subclassOf ProcessControl highestOrdinal = 2, number = 2128;
 	SMonteCarloMultiSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2113;
 	ParliamentControl subclassOf BaseControl transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 4, number = 2114;
-	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 12, number = 2118;
+	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 14, number = 2118;
 	FigmentArray subclassOf ObjectArray number = 2124;
 	PartyArray subclassOf ObjectArray number = 2117;
 	PollDataArray subclassOf ObjectArray number = 2121;
@@ -61,8 +62,9 @@ typeDefinitions
 			p5: ParliamentControl io; 
 			p6: ParliamentControl io; 
 			p7: ParliamentControl io; 
-			p8: ParliamentControl io) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:18:42.810;
+			p8: ParliamentControl io; 
+			info: Label io) updating, number = 1001;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:48:15.922;
 		simulationWorkerApp(controller: Controller) updating, number = 1003;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:02:46.529;
 		stopSimulation() updating, number = 1002;
@@ -206,6 +208,30 @@ typeDefinitions
 		parties:                       PartyArray  implicitMemberInverse, subId = 1, number = 1, ordinal = 1;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:23:41.110;
 	)
+	StatCollector completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:32:43.252;
+	attributeDefinitions
+		countHung:                     Integer protected, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:24.930;
+		countNZFBack:                  Integer protected, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:33.532;
+		countNZFKingMaker:             Integer protected, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:42.337;
+		sims:                          Integer protected, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:48.737;
+		winsLGM:                       Integer protected, number = 5, ordinal = 5;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:55.409;
+		winsNA:                        Integer protected, number = 6, ordinal = 6;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:04.081;
+	jadeMethodDefinitions
+		crunchNumbers(parties: PartyArray) updating, number = 1002;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:35:02.876;
+		getInfo(): String number = 1003;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:35:11.427;
+		pcnt(i: Integer): String protected, number = 1001;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:09.937;
+	)
 	Global completeDefinition
 	(
 	)
@@ -282,7 +308,7 @@ typeDefinitions
 	)
 	ParliamentForm completeDefinition
 	(
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:55:41.666;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:36:50.963;
 	referenceDefinitions
 		button1:                       Button  number = 2, ordinal = 2;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:12:38:35.519;
@@ -290,6 +316,10 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:55:36.770;
 		button3:                       Button  number = 12, ordinal = 12;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:55:41.664;
+		labInfo:                       Label  number = 14, ordinal = 14;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:35:56.333;
+		labTitle:                      Label  number = 13, ordinal = 13;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:28:54.916;
 		parliamentCommon:              ParliamentControl  number = 10, ordinal = 10;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:29:29.034;
 		parliamentControl1:            ParliamentControl  number = 1, ordinal = 1;
@@ -312,11 +342,11 @@ typeDefinitions
 		button1_click(btn: Button input) updating, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:29:57.020;
 		button2_click(btn: Button input) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:17:47.602;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:37:15.290;
 		button3_click(btn: Button input) updating, number = 1004;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:56:04.160;
 		load() updating, number = 1002;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:16:07:23.615;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:41:33.148;
 	eventMethodMappings
 		button1_click = click of Button;
 		button2_click = click of Button;
@@ -380,6 +410,7 @@ databaseDefinitions
 		RandomisedPoll in "montecarlomultischema";
 		SMonteCarloMultiSchema in "_environ";
 		SimulationResult in "montecarlomultischema";
+		StatCollector in "montecarlomultischema";
 	)
 typeSources
 	MonteCarloMultiSchema (
@@ -394,16 +425,17 @@ runSimulation(
 	p5 : ParliamentControl io;
 	p6 : ParliamentControl io;
 	p7 : ParliamentControl io;
-	p8 : ParliamentControl io
+	p8 : ParliamentControl io;
+	info : Label io
 ) updating;
 
 vars
 	simResult : SimulationResult;
 	randPoll : RandomisedPoll;
-	results : ObjectArray;
 	controller : Controller;
 	i : Integer;
 	controlArray : ObjectArray;
+	stats : StatCollector;
 begin
 	running := true;
 	
@@ -420,59 +452,63 @@ begin
 		app.startApplicationWithParameter(currentSchema.name, "SimulationWorker", controller);
 	endforeach;
 	
-	create results transient;
+	//create results transient;
+	
+	create stats transient;
+	
+	i := 0;
 	
 	while running do
-		SimulationResult.allInstances(results, 0, false);
+		
+		simResult := SimulationResult.firstInstance;
 	
-		foreach simResult in results as SimulationResult do
-			if 		simResult.workerId = 1 then
-				p1.drawSeats(simResult.parties);
-			elseif 	simResult.workerId = 2 then
-				p2.drawSeats(simResult.parties);
-			elseif 	simResult.workerId = 3 then
-				p3.drawSeats(simResult.parties);
-			elseif 	simResult.workerId = 4 then
-				p4.drawSeats(simResult.parties);
-			elseif 	simResult.workerId = 5 then
-				p5.drawSeats(simResult.parties);
-			elseif 	simResult.workerId = 6 then
-				p6.drawSeats(simResult.parties);
-			elseif 	simResult.workerId = 7 then
-				p7.drawSeats(simResult.parties);
-			elseif 	simResult.workerId = 8 then
-				p8.drawSeats(simResult.parties);
-			endif;
+		if 		simResult.workerId = 1 then
+			p1.drawSeats(simResult.parties);
+		elseif 	simResult.workerId = 2 then
+			p2.drawSeats(simResult.parties);
+		elseif 	simResult.workerId = 3 then
+			p3.drawSeats(simResult.parties);
+		elseif 	simResult.workerId = 4 then
+			p4.drawSeats(simResult.parties);
+		elseif 	simResult.workerId = 5 then
+			p5.drawSeats(simResult.parties);
+		elseif 	simResult.workerId = 6 then
+			p6.drawSeats(simResult.parties);
+		elseif 	simResult.workerId = 7 then
+			p7.drawSeats(simResult.parties);
+		elseif 	simResult.workerId = 8 then
+			p8.drawSeats(simResult.parties);
+		endif;
+		
+		stats.crunchNumbers(simResult.parties);
+		info.caption := stats.getInfo();
 
-			beginTransaction;
-			delete simResult;
-			commitTransaction;
-			app.doWindowEvents(1);
-			
-			if not running then
-				break;
-			endif;
-		endforeach;
-	
-		results.clear();	
+		beginTransaction;
+		delete simResult;
+		commitTransaction;
+
+		app.doWindowEvents(0);
+		
+		if not running then
+			break;
+		endif;
 	endwhile;
 	
 	beginTransientTransaction;
 	foreach controller in controlArray as Controller do
 		controller.running := false;
 	endforeach;
-	commitTransientTransaction;
-	
-	app.doWindowEvents(1);
-	
+	commitTransientTransaction;	
 epilog
-	delete results;
+	//delete results;
 	delete randPoll;
 	delete controlArray;
 	
 	beginTransaction;
 	SimulationResult.instances.purge();
 	commitTransaction;
+	
+	delete stats;
 end;
 }
 simulationWorkerApp
@@ -733,6 +769,85 @@ begin
 end;
 }
 	)
+	StatCollector (
+	jadeMethodSources
+crunchNumbers
+{
+crunchNumbers(parties : PartyArray) updating; //: Integer updating;
+
+vars
+	party : Party;
+	seatsNA : Integer;
+	seatsLGM : Integer;
+	seatsNZF : Integer;
+begin
+	sims := sims + 1;
+	
+	foreach party in parties do
+		if party.name = "Act" then
+			seatsNA := seatsNA + party.seats;
+		elseif party.name = "National" then
+			seatsNA := seatsNA + party.seats;
+		elseif party.name = "Labour" then
+			seatsLGM := seatsLGM + party.seats;
+		elseif party.name = "Green" then
+			seatsLGM := seatsLGM + party.seats;
+		elseif party.name = "TPM" then
+			seatsLGM := seatsLGM + party.seats;
+		elseif party.name = "NZF" then
+			seatsNZF := seatsNZF + party.seats;
+		endif;
+	endforeach;
+	
+	if seatsNZF > 0 then
+		countNZFBack := countNZFBack + 1;
+	endif;
+	
+	if seatsNA > 60 then
+		winsNA := winsNA + 1;
+		//return Result_RightBloc;
+	elseif seatsLGM > 60 then
+		winsLGM := winsLGM + 1;
+		//return Result_LeftBloc;
+	else
+		if seatsNA + seatsNZF > 60 then
+			countNZFKingMaker := countNZFKingMaker + 1;
+		elseif seatsLGM + seatsNZF > 60 then
+			countNZFKingMaker := countNZFKingMaker + 1;
+		else
+			countHung := countHung + 1;
+		endif;
+	endif;
+	
+	//return Result_Hung;
+end;
+}
+getInfo
+{
+getInfo() : String;
+
+vars
+
+begin
+	return 	"Simulations run: " & sims.String & CrLf &
+			"N+A wins: " & pcnt(winsNA) & CrLf &
+			"L+G+M wins: " & pcnt(winsLGM) & CrLf &
+			"NZF back: " & pcnt(countNZFBack) & CrLf &
+			"NZF decides: " & pcnt(countNZFKingMaker) & CrLf &
+			"Hung parliament: " & pcnt(countHung);
+end;
+}
+pcnt
+{
+pcnt(i : Integer) : String protected;
+
+vars
+
+begin
+	return ((i / sims) * 100).roundedTo(1).String & "% (" & i.String & "/" & sims.String & ") ";
+end;
+}
+	)
 	JadeScript (
 	jadeMethodSources
 runPoll_reid__07_26to31
@@ -882,7 +997,8 @@ begin
 		parliamentControl5,
 		parliamentControl6,
 		parliamentControl7,
-		parliamentControl8
+		parliamentControl8,
+		labInfo
 	);
 end;
 }
@@ -904,8 +1020,15 @@ vars
 
 begin
 	parliamentControl1.autoRedraw := true;
+	parliamentControl2.autoRedraw := true;
+	parliamentControl3.autoRedraw := true;
+	parliamentControl4.autoRedraw := true;
+	parliamentControl5.autoRedraw := true;
+	parliamentControl6.autoRedraw := true;
+	parliamentControl7.autoRedraw := true;
+	parliamentControl8.autoRedraw := true;
 	
-	app.initialize();
+	labTitle.caption := app.thePoll.name;
 end;
 }
 	)

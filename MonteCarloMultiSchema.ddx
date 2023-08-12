@@ -466,6 +466,122 @@
 		<width>926</width>
 		<windowState>0</windowState>
 		<controlList>
+			<Label name="labInfo">
+				<alignment>0</alignment>
+				<autoSize>false</autoSize>
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483633</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<caption>Info</caption>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>false</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName/>
+				<fontSize>8.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<formatOut/>
+				<height>130</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<hyperlink/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>469</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>labInfo</name>
+				<noPrefix>false</noPrefix>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>388</parentBottomOffset>
+				<parentRightOffset>19</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>14</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>70</top>
+				<transparent>true</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>422</width>
+				<wordWrap>false</wordWrap>
+			</Label>
+			<Label name="labTitle">
+				<alignment>7</alignment>
+				<autoSize>false</autoSize>
+				<backBrush/>
+				<backBrushStyle>0</backBrushStyle>
+				<backColor>-2147483633</backColor>
+				<borderColorSingle>0</borderColorSingle>
+				<borderStyle>0</borderStyle>
+				<bubbleHelp/>
+				<caption>LabTitle</caption>
+				<description/>
+				<disableReason/>
+				<dragCursor/>
+				<enabled>true</enabled>
+				<focusBackColor>0</focusBackColor>
+				<focusForeColor>0</focusForeColor>
+				<fontBold>true</fontBold>
+				<fontItalic>false</fontItalic>
+				<fontName>Tahoma</fontName>
+				<fontSize>20.25</fontSize>
+				<fontStrikethru>false</fontStrikethru>
+				<fontUnderline>false</fontUnderline>
+				<foreColor>-2147483640</foreColor>
+				<form name="ParliamentForm" />
+				<formatOut/>
+				<height>63</height>
+				<helpContextId>0</helpContextId>
+				<helpKeyword/>
+				<hyperlink/>
+				<ignoreSkin>false</ignoreSkin>
+				<index>0</index>
+				<left>467</left>
+				<mouseCursor/>
+				<mousePointer>0</mousePointer>
+				<name>labTitle</name>
+				<noPrefix>false</noPrefix>
+				<parent name="ParliamentForm" />
+				<parentAspect>0</parentAspect>
+				<parentBottomOffset>515</parentBottomOffset>
+				<parentRightOffset>22</parentRightOffset>
+				<relativeHeight>false</relativeHeight>
+				<relativeLeft>false</relativeLeft>
+				<relativeTop>false</relativeTop>
+				<relativeWidth>false</relativeWidth>
+				<securityLevelEnabled>0</securityLevelEnabled>
+				<securityLevelVisible>0</securityLevelVisible>
+				<show3D>3</show3D>
+				<skinCategoryName/>
+				<tabIndex>13</tabIndex>
+				<tabStop>false</tabStop>
+				<tag/>
+				<top>10</top>
+				<transparent>true</transparent>
+				<userScript/>
+				<visible>true</visible>
+				<width>421</width>
+				<wordWrap>false</wordWrap>
+			</Label>
 			<Button name="button3">
 				<autoSize>1</autoSize>
 				<backBrush/>

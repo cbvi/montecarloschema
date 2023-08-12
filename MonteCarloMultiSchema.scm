@@ -282,6 +282,8 @@ typeDefinitions
 	JadeScript completeDefinition
 	(
 	jadeMethodDefinitions
+		runPoll_curia__08_03to08() number = 1002;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:12:07.271;
 		runPoll_reid__07_26to31() number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:01:46.565;
 	)
@@ -345,13 +347,11 @@ typeDefinitions
 	)
 	ParliamentForm completeDefinition
 	(
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:36:50.963;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:08:31.359;
 	referenceDefinitions
-		button1:                       Button  number = 2, ordinal = 2;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:12:38:35.519;
-		button2:                       Button  number = 11, ordinal = 11;
+		butStart:                      Button  number = 11, ordinal = 11;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:55:36.770;
-		button3:                       Button  number = 12, ordinal = 12;
+		butStop:                       Button  number = 12, ordinal = 12;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:55:41.664;
 		labInfo:                       Label  number = 14, ordinal = 14;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:35:56.333;
@@ -376,18 +376,15 @@ typeDefinitions
 		parliamentControl8:            ParliamentControl  number = 9, ordinal = 9;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:12:49:41.294;
 	jadeMethodDefinitions
-		button1_click(btn: Button input) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:29:57.020;
-		button2_click(btn: Button input) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:35:36.753;
-		button3_click(btn: Button input) updating, number = 1004;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:56:04.160;
+		butStart_click(btn: Button input) updating, number = 1003;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:08:30.857;
+		butStop_click(btn: Button input) updating, number = 1004;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:08:30.813;
 		load() updating, number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:41:33.148;
 	eventMethodMappings
-		button1_click = click of Button;
-		button2_click = click of Button;
-		button3_click = click of Button;
+		butStart_click = click of Button;
+		butStop_click = click of Button;
 		load = load of Form;
 	)
 	Collection completeDefinition
@@ -1029,6 +1026,35 @@ end;
 	)
 	JadeScript (
 	jadeMethodSources
+runPoll_curia__08_03to08
+{
+runPoll_curia__08_03to08();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Curia 03-08 August";
+	app.thePoll.sampleSize := 1000;
+	
+	app.thePoll.addDatum("National", 34.9, Blue, true);
+	app.thePoll.addDatum("NZF", 5.8, Black, false);
+	app.thePoll.addDatum("Act", 13.0, Yellow, true);
+	app.thePoll.addDatum("TPM", 2.5, DarkRed, true);
+	app.thePoll.addDatum("Green", 12.0, Green, true);
+	app.thePoll.addDatum("Labour", 27.1, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
 runPoll_reid__07_26to31
 {
 runPoll_reid__07_26to31();
@@ -1121,49 +1147,9 @@ end;
 	)
 	ParliamentForm (
 	jadeMethodSources
-button1_click
+butStart_click
 {
-button1_click(btn: Button input) updating;
-
-vars
-	parties : PartyArray;
-	party : Party;
-begin
-	create parties transient;
-
-	create party transient;
-	party.seats := 30;
-	party.colour := Red;
-	parties.add(party);
-	
-	create party transient;
-	party.seats := 40;
-	party.colour := Green;
-	parties.add(party);
-	
-	create party transient;
-	party.seats := 50;
-	party.colour := Yellow;
-	parties.add(party);
-	
-	parliamentControl1.drawSeats(parties);
-	parliamentControl2.drawSeats(parties);
-	parliamentControl3.drawSeats(parties);
-	parliamentControl4.drawSeats(parties);
-	parliamentControl5.drawSeats(parties);
-	parliamentControl6.drawSeats(parties);
-	parliamentControl7.drawSeats(parties);
-	parliamentControl8.drawSeats(parties);
-	
-	parliamentCommon.drawSeats(parties);
-epilog
-	parties.purge();
-	delete parties;
-end;
-}
-button2_click
-{
-button2_click(btn: Button input) updating;
+butStart_click(btn: Button input) updating;
 
 vars
 
@@ -1182,9 +1168,9 @@ begin
 	);
 end;
 }
-button3_click
+butStop_click
 {
-button3_click(btn: Button input) updating;
+butStop_click(btn: Button input) updating;
 
 vars
 

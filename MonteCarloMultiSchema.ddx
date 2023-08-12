@@ -38,6 +38,42 @@
 			<GUIClass name="CheckBox" />
 		</threeDControls>
 	</Application>
+	<Application name="SimulationWorker">
+		<__overridePatchNumber>0</__overridePatchNumber>
+		<__patchControlString/>
+		<_aboutFormName/>
+		<_defaultLocaleId>0</_defaultLocaleId>
+		<_modifiedBy>Carlin</_modifiedBy>
+		<_modifiedTimestamp>2023:08:12:17:56:12.751</_modifiedTimestamp>
+		<_patchVersion>0</_patchVersion>
+		<_startupFormName/>
+		<_systemVersion>22.0.02</_systemVersion>
+		<aboutForm/>
+		<appVersion/>
+		<applicationType>S</applicationType>
+		<controlSpacing>4</controlSpacing>
+		<defaultApp>false</defaultApp>
+		<defaultMdi>false</defaultMdi>
+		<finalizeMethod/>
+		<fontBold>false</fontBold>
+		<fontName>Tahoma</fontName>
+		<fontSize>8.25</fontSize>
+		<formMargin>7</formMargin>
+		<heightSingleLineControl>14</heightSingleLineControl>
+		<helpFile/>
+		<icon/>
+		<initializeMethod name="simulationWorkerApp" />
+		<mdiStyle>0</mdiStyle>
+		<mdiWindowListOrder>0</mdiWindowListOrder>
+		<name>SimulationWorker</name>
+		<showBubbleHelp>false</showBubbleHelp>
+		<startupForm/>
+		<useBorderStyleOnly>true</useBorderStyleOnly>
+		<webMinimumResponseTime>0</webMinimumResponseTime>
+		<threeDControls>
+			<GUIClass name="GroupBox" />
+		</threeDControls>
+	</Application>
 
 	<PainterControlDefinition name="ParliamentControl">
 		<bitmap/>

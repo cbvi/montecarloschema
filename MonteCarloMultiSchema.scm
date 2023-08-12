@@ -19,7 +19,10 @@ typeHeaders
 	Party subclassOf DataModel highestOrdinal = 3, number = 2116;
 	Poll subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2119;
 	RandomisedPoll subclassOf DataModel highestSubId = 1, highestOrdinal = 1, number = 2125;
+	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 2, number = 2126;
 	GMonteCarloMultiSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2112;
+	ProcessControl subclassOf Object number = 2127;
+	Controller subclassOf ProcessControl highestOrdinal = 2, number = 2128;
 	SMonteCarloMultiSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2113;
 	ParliamentControl subclassOf BaseControl transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 4, number = 2114;
 	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 12, number = 2118;
@@ -50,8 +53,18 @@ typeDefinitions
 		thePoll:                       Poll  number = 1, ordinal = 1;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:06:32.299;
 	jadeMethodDefinitions
-		runSimulation(p1: ParliamentControl io) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:54:27.417;
+		runSimulation(
+			p1: ParliamentControl io; 
+			p2: ParliamentControl io; 
+			p3: ParliamentControl io; 
+			p4: ParliamentControl io; 
+			p5: ParliamentControl io; 
+			p6: ParliamentControl io; 
+			p7: ParliamentControl io; 
+			p8: ParliamentControl io) updating, number = 1001;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:18:42.810;
+		simulationWorkerApp(controller: Controller) updating, number = 1003;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:02:46.529;
 		stopSimulation() updating, number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:54:13.398;
 	)
@@ -85,7 +98,7 @@ typeDefinitions
 			colour_: Integer; 
 			electorateWin_: Boolean; 
 			poll_: Poll) updating, number = 1002;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:14:56:14.375;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:00:57.650;
 		delete() updating, number = 1003;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:16:06:02.774;
 	)
@@ -133,7 +146,7 @@ typeDefinitions
 		delete() updating, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:16:05:46.342;
 		generatePossibleRange() updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:14:01:58.813;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:03:17.321;
 	)
 	Party completeDefinition
 	(
@@ -169,7 +182,7 @@ typeDefinitions
 			percent: Decimal; 
 			colour: Integer; 
 			electorateWin: Boolean) number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:07:26.630;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:00:32.257;
 		createRandomisedPoll(seed: Integer io): RandomisedPoll number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:28:20.470;
 	)
@@ -180,8 +193,18 @@ typeDefinitions
 		figments:                      FigmentArray   explicitInverse, subId = 1, number = 1, ordinal = 1;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:35:49.492;
 	jadeMethodDefinitions
-		generateParties(): PartyArray number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:47:29.032;
+		generateParties(workerId: Integer): SimulationResult number = 1001;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:48:47.945;
+	)
+	SimulationResult completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:23:12.143;
+	attributeDefinitions
+		workerId:                      Integer number = 2, ordinal = 2;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:23:49.749;
+	referenceDefinitions
+		parties:                       PartyArray  implicitMemberInverse, subId = 1, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:23:41.110;
 	)
 	Global completeDefinition
 	(
@@ -197,7 +220,20 @@ typeDefinitions
 	(
 	jadeMethodDefinitions
 		runPoll_reid__07_26to31() number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:08:57.970;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:01:46.565;
+	)
+	ProcessControl completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:45:16.147;
+	)
+	Controller completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:45:20.695;
+	attributeDefinitions
+		running:                       Boolean number = 1, ordinal = 1;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:45:28.383;
+		workerId:                      Integer number = 2, ordinal = 2;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:52:58.717;
 	)
 	WebSession completeDefinition
 	(
@@ -223,7 +259,7 @@ typeDefinitions
 	)
 	ParliamentControl completeDefinition
 	(
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:24:27.688;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:17:11:55.218;
 	attributeDefinitions
 		seatsGap:                      Integer readonly, number = 4, ordinal = 4;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:24:13.481;
@@ -276,7 +312,7 @@ typeDefinitions
 		button1_click(btn: Button input) updating, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:29:57.020;
 		button2_click(btn: Button input) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:55:53.992;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:17:47.602;
 		button3_click(btn: Button input) updating, number = 1004;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:56:04.160;
 		load() updating, number = 1002;
@@ -308,7 +344,7 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:12:34:26.540;
 	jadeMethodDefinitions
 		addFromFigment(figment: Figment) updating, lockReceiver, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:46:21.559;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:04:33.033;
 	)
 	PollDataArray completeDefinition
 	(
@@ -327,6 +363,7 @@ databaseDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:12:12:18.748;
 	defaultFileDefinition "montecarlomultischema";
 	classMapDefinitions
+		Controller in "montecarlomultischema";
 		DataModel in "montecarlomultischema";
 		Datum in "montecarlomultischema";
 		Figment in "montecarlomultischema";
@@ -339,35 +376,124 @@ databaseDefinitions
 		PartyArray in "montecarlomultischema";
 		Poll in "montecarlomultischema";
 		PollDataArray in "montecarlomultischema";
+		ProcessControl in "montecarlomultischema";
 		RandomisedPoll in "montecarlomultischema";
 		SMonteCarloMultiSchema in "_environ";
+		SimulationResult in "montecarlomultischema";
 	)
 typeSources
 	MonteCarloMultiSchema (
 	jadeMethodSources
 runSimulation
 {
-runSimulation(p1 : ParliamentControl io) updating;
+runSimulation(
+	p1 : ParliamentControl io;
+	p2 : ParliamentControl io;
+	p3 : ParliamentControl io;
+	p4 : ParliamentControl io;
+	p5 : ParliamentControl io;
+	p6 : ParliamentControl io;
+	p7 : ParliamentControl io;
+	p8 : ParliamentControl io
+) updating;
 
 vars
-	parties : PartyArray;
+	simResult : SimulationResult;
 	randPoll : RandomisedPoll;
-	seed : Integer;
+	results : ObjectArray;
+	controller : Controller;
+	i : Integer;
+	controlArray : ObjectArray;
 begin
 	running := true;
 	
-	randPoll := thePoll.createRandomisedPoll(seed);
+	create controlArray transient;
 	
-	parties := randPoll.generateParties();
+	foreach i in 1 to 8 do
+		beginTransientTransaction;
+		create controller sharedTransient;
+		controller.running := true;
+		controller.workerId := i;
+		commitTransientTransaction;
+		controlArray.add(controller);
+		
+		app.startApplicationWithParameter(currentSchema.name, "SimulationWorker", controller);
+	endforeach;
 	
-	p1.drawSeats(parties);
+	create results transient;
+	
+	while running do
+		SimulationResult.allInstances(results, 0, false);
+	
+		foreach simResult in results as SimulationResult do
+			if 		simResult.workerId = 1 then
+				p1.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 2 then
+				p2.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 3 then
+				p3.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 4 then
+				p4.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 5 then
+				p5.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 6 then
+				p6.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 7 then
+				p7.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 8 then
+				p8.drawSeats(simResult.parties);
+			endif;
+
+			beginTransaction;
+			delete simResult;
+			commitTransaction;
+			app.doWindowEvents(1);
+			
+			if not running then
+				break;
+			endif;
+		endforeach;
+	
+		results.clear();	
+	endwhile;
+	
+	beginTransientTransaction;
+	foreach controller in controlArray as Controller do
+		controller.running := false;
+	endforeach;
+	commitTransientTransaction;
 	
 	app.doWindowEvents(1);
 	
 epilog
+	delete results;
 	delete randPoll;
-	parties.purge();
-	delete parties;
+	delete controlArray;
+	
+	beginTransaction;
+	SimulationResult.instances.purge();
+	commitTransaction;
+end;
+}
+simulationWorkerApp
+{
+simulationWorkerApp(controller : Controller) updating;
+
+vars
+	randPoll 	: RandomisedPoll;
+	simResult 	: SimulationResult;
+	seed		: Integer;
+begin
+	thePoll := Poll.firstSharedTransientInstance;
+
+	while controller.running do
+		randPoll := thePoll.createRandomisedPoll(seed);
+		simResult := randPoll.generateParties(controller.workerId);
+		delete randPoll;
+	endwhile;
+	
+epilog
+	terminate;
 end;
 }
 stopSimulation
@@ -418,7 +544,7 @@ begin
 	
 	myPoll := poll_;
 	
-	margin := create Margin(percent, calculateMarginOfError()) transient;
+	margin := create Margin(percent, calculateMarginOfError()) sharedTransient;
 end;
 }
 delete
@@ -505,7 +631,7 @@ generatePossibleRange() updating;
 vars
 	cur		: Real;
 begin
-	create self.possibleRange transient;
+	create self.possibleRange sharedTransient;
 
 	cur := self.low;
 	while cur < self.high do
@@ -539,7 +665,7 @@ addDatum(name_ : String; percent : Decimal; colour : Integer; electorateWin : Bo
 vars
 	datum : Datum;
 begin
-	datum := create Datum(name_, percent, colour, electorateWin, self) transient;
+	datum := create Datum(name_, percent, colour, electorateWin, self) sharedTransient;
 end;
 }
 createRandomisedPoll
@@ -566,10 +692,10 @@ end;
 	jadeMethodSources
 generateParties
 {
-generateParties() : PartyArray;
+generateParties(workerId : Integer) : SimulationResult;
 
 vars
-	parties : PartyArray;
+	simResult : SimulationResult;
 	figment : Figment;
 	i : Integer;
 	currentHighest : Figment;
@@ -594,13 +720,16 @@ begin
 		best := 0;
 	endforeach;
 	
-	create parties transient;
+	beginTransaction;
+	create simResult persistent;
+	simResult.workerId := workerId;
 
 	foreach figment in figments do
-		parties.addFromFigment(figment);
+		simResult.parties.addFromFigment(figment);
 	endforeach;
+	commitTransaction;
 	
-	return parties;
+	return simResult;
 end;
 }
 	)
@@ -613,7 +742,8 @@ runPoll_reid__07_26to31();
 vars
 	parliament : ParliamentForm;
 begin
-	create app.thePoll transient;
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
 	app.thePoll.name := "Reid Research 26-31 July";
 	app.thePoll.sampleSize := 1000;
 	
@@ -623,11 +753,14 @@ begin
 	app.thePoll.addDatum("TPM", 2.7, DarkRed, true);
 	app.thePoll.addDatum("Green", 9.6, Green, true);
 	app.thePoll.addDatum("Labour", 32.3, Red, true);
+	commitTransientTransaction;
 
 	create parliament transient;
 	parliament.showModal;
 epilog
+	beginTransientTransaction;
 	delete app.thePoll;
+	commitTransientTransaction;
 	delete parliament;
 end;
 }
@@ -741,7 +874,16 @@ button2_click(btn: Button input) updating;
 vars
 
 begin
-	app.runSimulation(parliamentControl1);
+	app.runSimulation(
+		parliamentControl1,
+		parliamentControl2,
+		parliamentControl3,
+		parliamentControl4,
+		parliamentControl5,
+		parliamentControl6,
+		parliamentControl7,
+		parliamentControl8
+	);
 end;
 }
 button3_click
@@ -776,7 +918,7 @@ addFromFigment(figment : Figment) lockReceiver, updating;
 vars
 	party : Party;
 begin
-	party := create Party(figment.myDatum.name, figment.seatsAllocated, figment.myDatum.colour) transient;
+	party := create Party(figment.myDatum.name, figment.seatsAllocated, figment.myDatum.colour) persistent;
 	self.add(party);
 end;
 }

@@ -7,6 +7,8 @@ constantDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:08:29.959;
 		DarkRed:                       Integer = 139;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:08:39.327;
+		Teal:                          Integer = 16776960;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:11:28.625;
 localeDefinitions
 	5129 "English (New Zealand)" schemaDefaultLocale;
 	setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:12:12:18.713;
@@ -17,18 +19,19 @@ typeHeaders
 	Figment subclassOf DataModel highestOrdinal = 4, number = 2123;
 	Margin subclassOf DataModel highestOrdinal = 4, number = 2122;
 	Party subclassOf DataModel highestOrdinal = 3, number = 2116;
-	Patterniser subclassOf DataModel highestOrdinal = 7, number = 2130;
+	Patterniser subclassOf DataModel highestOrdinal = 8, number = 2130;
 	Poll subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2119;
 	RandomisedPoll subclassOf DataModel highestSubId = 1, highestOrdinal = 1, number = 2125;
 	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2126;
-	StatCollector subclassOf DataModel highestSubId = 1, highestOrdinal = 11, number = 2129;
+	StatCollector subclassOf DataModel highestSubId = 1, highestOrdinal = 13, number = 2129;
 	StaleDataException subclassOf Exception transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2132;
+	UnknownPartyException subclassOf Exception transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2133;
 	GMonteCarloMultiSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2112;
 	ProcessControl subclassOf Object number = 2127;
 	Controller subclassOf ProcessControl highestOrdinal = 3, number = 2128;
 	SMonteCarloMultiSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2113;
 	ParliamentControl subclassOf BaseControl transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 4, number = 2114;
-	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 14, number = 2118;
+	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 15, number = 2118;
 	PatterniserDict subclassOf MemberKeyDictionary loadFactor = 66, number = 2131;
 	FigmentArray subclassOf ObjectArray number = 2124;
 	PartyArray subclassOf ObjectArray number = 2117;
@@ -188,11 +191,13 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:31.461;
 		nzf:                           Integer number = 6, ordinal = 6;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:44.899;
+		top:                           Integer number = 8, ordinal = 8;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:15:43.652;
 		tpm:                           Integer number = 5, ordinal = 5;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:03:39.576;
 	jadeMethodDefinitions
 		createPartyArray(): PartyArray number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:47:03.753;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:29:03.742;
 	)
 	Poll completeDefinition
 	(
@@ -252,6 +257,10 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:33.532;
 		countNZFKingMaker:             Integer protected, number = 3, ordinal = 3;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:33:42.337;
+		countNZFandTOPdeathmatch:      Integer protected, number = 13, ordinal = 13;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:16:46.858;
+		countTOPKingmaker:             Integer protected, number = 12, ordinal = 12;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:13:04.634;
 		currentRepeatStreak:           Integer protected, number = 10, ordinal = 10;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:05:46.208;
 		lastUniqueResult:              Integer protected, number = 9, ordinal = 9;
@@ -269,15 +278,15 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:06:49.772;
 	jadeMethodDefinitions
 		addPattern(parties: PartyArray) updating, number = 1004;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:06:37.877;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:35:46.982;
 		crunchNumbers(parties: PartyArray) updating, number = 1002;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:16:07.088;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:17:54.457;
 		delete() updating, number = 1005;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:15:50.506;
 		findCommonPattern(): PartyArray updating, number = 1006;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:47:28.835;
 		getInfo(): String number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:15:09.300;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:20:44.856;
 		pcnt(i: Integer): String protected, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:09.937;
 		streak(): String protected, number = 1007;
@@ -289,6 +298,10 @@ typeDefinitions
 	StaleDataException completeDefinition
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:09:58.498;
+	)
+	UnknownPartyException completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:20:43.475;
 	)
 	Global completeDefinition
 	(
@@ -305,12 +318,16 @@ typeDefinitions
 	jadeMethodDefinitions
 		runPoll_curia__08_03to08() number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:59:58.226;
+		runPoll_curia__08_03to08_top() number = 1006;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:29:05.384;
 		runPoll_guardian__08_02to06() number = 1003;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:35:55.577;
 		runPoll_reid__07_26to31() number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:01:46.565;
 		runPoll_talbot__08_31to07() number = 1004;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:17:21:12.900;
+		runPoll_talbot__08_31to07_top() number = 1005;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:59:34.311;
 	)
 	ProcessControl completeDefinition
 	(
@@ -365,7 +382,7 @@ typeDefinitions
 		determineSeatColour(
 			count: Integer; 
 			parties: PartyArray): Integer protected, number = 1002;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:12:36:59.243;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:21:38.368;
 		drawSeats(parties: PartyArray) updating, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:13:28:33.101;
 	)
@@ -374,7 +391,7 @@ typeDefinitions
 	)
 	ParliamentForm completeDefinition
 	(
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:08:31.359;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:12:18.314;
 	referenceDefinitions
 		butStart:                      Button  number = 11, ordinal = 11;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:55:36.770;
@@ -428,7 +445,7 @@ typeDefinitions
 	)
 	PatterniserDict completeDefinition
 	(
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:04:41.764;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:16:17.190;
 	)
 	List completeDefinition
 	(
@@ -463,6 +480,7 @@ memberKeyDefinitions
 		national;
 		nzf;
 		tpm;
+		top;
 	)
 inverseDefinitions
 	data of Poll automatic parentOf myPoll of Datum manual;
@@ -506,6 +524,7 @@ databaseDefinitions
 		SimulationResult in "simresult";
 		StaleDataException in "montecarlomultischema";
 		StatCollector in "montecarlomultischema";
+		UnknownPartyException in "montecarlomultischema";
 	)
 typeSources
 	MonteCarloMultiSchema (
@@ -839,6 +858,9 @@ begin
 	party := create Party("NZF", nzf, Black) transient;
 	parties.add(party);
 	
+	party := create Party("TOP", top, Teal) transient;
+	parties.add(party);
+	
 	party := create Party("TPM", tpm, DarkRed) transient;
 	parties.add(party);
 	
@@ -969,10 +991,12 @@ begin
 			pattern.tpm := party.seats;
 		elseif party.name = "NZF" then
 			pattern.nzf := party.seats;
+		elseif party.name = "TOP" then
+			pattern.top := party.seats;
 		endif;
 	endforeach;
 	
-	exist := patternDict.getAtKey(pattern.act, pattern.green, pattern.labour, pattern.national, pattern.nzf, pattern.tpm);
+	exist := patternDict.getAtKey(pattern.act, pattern.green, pattern.labour, pattern.national, pattern.nzf, pattern.tpm, pattern.top);
 	if exist <> null then
 		exist.count := exist.count + 1;
 		delete pattern;
@@ -998,6 +1022,7 @@ vars
 	seatsNA : Integer;
 	seatsLGM : Integer;
 	seatsNZF : Integer;
+	seatsTOP : Integer;
 begin
 	sims := sims + 1;
 	
@@ -1014,6 +1039,8 @@ begin
 			seatsLGM := seatsLGM + party.seats;
 		elseif party.name = "NZF" then
 			seatsNZF := seatsNZF + party.seats;
+		elseif party.name = "TOP" then
+			seatsTOP := seatsTOP + party.seats;
 		endif;
 	endforeach;
 	
@@ -1028,7 +1055,15 @@ begin
 		winsLGM := winsLGM + 1;
 		//return Result_LeftBloc;
 	else
-		if seatsNA + seatsNZF > 60 then
+		if (seatsNA + seatsNZF > 60) and (seatsNA + seatsTOP > 60) then
+			countNZFandTOPdeathmatch := countNZFandTOPdeathmatch + 1;
+		elseif (seatsLGM + seatsNZF > 60) and (seatsLGM + seatsTOP > 60) then
+			countNZFandTOPdeathmatch := countNZFandTOPdeathmatch + 1;
+		elseif seatsNA + seatsTOP > 60 then
+			countTOPKingmaker := countTOPKingmaker + 1;
+		elseif seatsLGM + seatsTOP > 60 then
+			countTOPKingmaker := countTOPKingmaker + 1;
+		elseif seatsNA + seatsNZF > 60 then
 			countNZFKingMaker := countNZFKingMaker + 1;
 		elseif seatsLGM + seatsNZF > 60 then
 			countNZFKingMaker := countNZFKingMaker + 1;
@@ -1084,8 +1119,8 @@ begin
 			"N+A wins: " & pcnt(winsNA) & CrLf &
 			"L+G+M wins: " & pcnt(winsLGM) & CrLf &
 			"NZF back: " & pcnt(countNZFBack) & CrLf &
-			"NZF decides: " & pcnt(countNZFKingMaker) & CrLf &
-			"Hung parliament: " & pcnt(countHung) & CrLf & CrLf &
+			"NZF decides: " & pcnt(countNZFKingMaker) & "        " & "TOP decides: " & pcnt(countTOPKingmaker) & CrLf &
+			"Hung parliament: " & pcnt(countHung) & "        " & "TOP or NZF decide: " & pcnt(countNZFandTOPdeathmatch) & CrLf & CrLf &
 			"Common result appeared: " & pcnt(countCommon) & CrLf &
 			"Unique results: " & pcnt(patternDict.size()) & CrLf &
 			"Last unique result: " & streak();
@@ -1129,6 +1164,36 @@ begin
 	app.thePoll.addDatum("National", 34.9, Blue, true);
 	app.thePoll.addDatum("Act", 13.0, Yellow, true);
 	app.thePoll.addDatum("NZF", 5.8, Black, false);
+	app.thePoll.addDatum("TPM", 2.5, DarkRed, true);
+	app.thePoll.addDatum("Green", 12.0, Green, true);
+	app.thePoll.addDatum("Labour", 27.1, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
+runPoll_curia__08_03to08_top
+{
+runPoll_curia__08_03to08_top();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Curia 03-08 August (+TOP)";
+	app.thePoll.sampleSize := 1000;
+	
+	app.thePoll.addDatum("National", 34.9, Blue, true);
+	app.thePoll.addDatum("Act", 13.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 5.8, Black, false);
+	app.thePoll.addDatum("TOP", 1.8, Teal, true);
 	app.thePoll.addDatum("TPM", 2.5, DarkRed, true);
 	app.thePoll.addDatum("Green", 12.0, Green, true);
 	app.thePoll.addDatum("Labour", 27.1, Red, true);
@@ -1230,6 +1295,36 @@ epilog
 	delete parliament;
 end;
 }
+runPoll_talbot__08_31to07_top
+{
+runPoll_talbot__08_31to07_top();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Talbot Mills 31-07 August (+TOP)";
+	app.thePoll.sampleSize := 1036;
+	
+	app.thePoll.addDatum("National", 35.0, Blue, true);
+	app.thePoll.addDatum("Act", 11.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 4.4, Black, false);
+	app.thePoll.addDatum("TOP", 1.8, Teal, true);
+	app.thePoll.addDatum("TPM", 3.1, DarkRed, true);
+	app.thePoll.addDatum("Green", 10.0, Green, true);
+	app.thePoll.addDatum("Labour", 32.0, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
 	)
 	ParliamentControl (
 	jadeMethodSources
@@ -1240,6 +1335,7 @@ determineSeatColour(count : Integer; parties : PartyArray) : Integer protected;
 vars
 	party : Party;
 	allocated : Integer;
+	ex : UnknownPartyException;
 begin
 	foreach party in parties do
 		allocated := allocated + party.seats;
@@ -1249,6 +1345,8 @@ begin
 		return party.colour;
 	endforeach;
 
+	create ex transient;
+	raise ex;
 	return DarkGray;
 end;
 }

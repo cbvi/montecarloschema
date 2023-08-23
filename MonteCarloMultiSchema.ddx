@@ -1,27 +1,63 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <schema name="MonteCarloMultiSchema" JadeVersionNumber="22.0.02" JadePatchNumber="0" CompleteDefinition="true">
+	<Application name="BenchmarkWorker">
+		<__overridePatchNumber>0</__overridePatchNumber>
+		<__patchControlString/>
+		<_aboutFormName/>
+		<_defaultLocaleId>0</_defaultLocaleId>
+		<_modifiedBy>Carlin</_modifiedBy>
+		<_modifiedTimestamp>2023:08:23:18:45:26.891</_modifiedTimestamp>
+		<_patchVersion>0</_patchVersion>
+		<_startupFormName/>
+		<_systemVersion>22.0.02</_systemVersion>
+		<aboutForm/>
+		<appVersion/>
+		<applicationType>S</applicationType>
+		<controlSpacing>4</controlSpacing>
+		<defaultApp>false</defaultApp>
+		<defaultMdi>false</defaultMdi>
+		<finalizeMethod/>
+		<fontBold>false</fontBold>
+		<fontName>Tahoma</fontName>
+		<fontSize>8.25</fontSize>
+		<formMargin>7</formMargin>
+		<heightSingleLineControl>14</heightSingleLineControl>
+		<helpFile/>
+		<icon/>
+		<initializeMethod name="benchmarkWorkerApp" />
+		<mdiStyle>0</mdiStyle>
+		<mdiWindowListOrder>0</mdiWindowListOrder>
+		<name>BenchmarkWorker</name>
+		<showBubbleHelp>false</showBubbleHelp>
+		<startupForm/>
+		<useBorderStyleOnly>true</useBorderStyleOnly>
+		<webMinimumResponseTime>0</webMinimumResponseTime>
+		<threeDControls>
+			<GUIClass name="GroupBox" />
+		</threeDControls>
+	</Application>
 	<Application name="MonteCarloMultiSchema">
 		<__overridePatchNumber>0</__overridePatchNumber>
 		<__patchControlString/>
 		<_aboutFormName/>
 		<_defaultLocaleId>0</_defaultLocaleId>
-		<_modifiedBy/>
-		<_modifiedTimestamp/>
+		<_modifiedBy>Carlin</_modifiedBy>
+		<_modifiedTimestamp>2023:08:23:18:55:25.856</_modifiedTimestamp>
 		<_patchVersion>0</_patchVersion>
-		<_startupFormName>ParliamentForm</_startupFormName>
-		<_systemVersion/>
+		<_startupFormName/>
+		<_systemVersion>22.0.02</_systemVersion>
 		<aboutForm/>
 		<appVersion/>
 		<applicationType>G</applicationType>
-		<controlSpacing>0</controlSpacing>
+		<controlSpacing>4</controlSpacing>
 		<defaultApp>true</defaultApp>
 		<defaultMdi>false</defaultMdi>
 		<finalizeMethod/>
 		<fontBold>false</fontBold>
 		<fontName>Tahoma</fontName>
 		<fontSize>8.25</fontSize>
-		<formMargin>0</formMargin>
-		<heightSingleLineControl>0</heightSingleLineControl>
+		<formMargin>7</formMargin>
+		<heightSingleLineControl>14</heightSingleLineControl>
 		<helpFile/>
 		<icon/>
 		<initializeMethod/>
@@ -33,9 +69,9 @@
 		<useBorderStyleOnly>false</useBorderStyleOnly>
 		<webMinimumResponseTime>0</webMinimumResponseTime>
 		<threeDControls>
+			<GUIClass name="CheckBox" />
 			<GUIClass name="GroupBox" />
 			<GUIClass name="OptionButton" />
-			<GUIClass name="CheckBox" />
 		</threeDControls>
 	</Application>
 	<Application name="SimulationWorker">

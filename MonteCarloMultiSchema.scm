@@ -16,14 +16,14 @@ typeHeaders
 	MonteCarloMultiSchema subclassOf RootSchemaApp transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 2, number = 2105;
 	DataModel subclassOf Object number = 2115;
 	Datum subclassOf DataModel highestOrdinal = 6, number = 2120;
-	Figment subclassOf DataModel highestOrdinal = 4, number = 2123;
+	Figment subclassOf DataModel highestOrdinal = 5, number = 2123;
 	Margin subclassOf DataModel highestOrdinal = 4, number = 2122;
 	Party subclassOf DataModel highestOrdinal = 3, number = 2116;
 	Patterniser subclassOf DataModel highestOrdinal = 8, number = 2130;
 	Poll subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2119;
 	RandomisedPoll subclassOf DataModel highestSubId = 1, highestOrdinal = 1, number = 2125;
 	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2126;
-	StatCollector subclassOf DataModel highestSubId = 1, highestOrdinal = 13, number = 2129;
+	StatCollector subclassOf DataModel highestSubId = 1, highestOrdinal = 14, number = 2129;
 	StaleDataException subclassOf Exception transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2132;
 	UnknownPartyException subclassOf Exception transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2133;
 	GMonteCarloMultiSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2112;
@@ -61,6 +61,8 @@ typeDefinitions
 		thePoll:                       Poll  number = 1, ordinal = 1;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:06:32.299;
 	jadeMethodDefinitions
+		benchmarkWorkerApp() updating, number = 1004;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:00:37.721;
 		runSimulation(
 			p0: ParliamentControl io; 
 			p1: ParliamentControl io; 
@@ -72,9 +74,9 @@ typeDefinitions
 			p7: ParliamentControl io; 
 			p8: ParliamentControl io; 
 			info: Label io) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:27:01.068;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:20:20:29.356;
 		simulationWorkerApp(controller: Controller) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:24:25.217;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:20:20:37.305;
 		stopSimulation() updating, number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:54:13.398;
 	)
@@ -116,6 +118,8 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:23:17:32.450;
 	attributeDefinitions
+		lastQuotient:                  Real number = 5, ordinal = 5;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:18:52:40.708;
 		randomPercent:                 Real number = 3, ordinal = 3;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:14:52:55.888;
 		seatsAllocated:                Integer number = 2, ordinal = 2;
@@ -228,7 +232,7 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:35:49.492;
 	jadeMethodDefinitions
 		generateParties(workerId: Integer): SimulationResult number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:08:34.335;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:18:53:45.816;
 	)
 	SimulationResult completeDefinition
 	(
@@ -263,6 +267,8 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:13:04.634;
 		currentRepeatStreak:           Integer protected, number = 10, ordinal = 10;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:05:46.208;
+		infoString:                    String[1501] protected, subId = 1, number = 14, ordinal = 14;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:19:45:18.951;
 		lastUniqueResult:              Integer protected, number = 9, ordinal = 9;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:00:57.171;
 		longestRepeatStreak:           Integer protected, number = 11, ordinal = 11;
@@ -285,8 +291,10 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:15:50.506;
 		findCommonPattern(): PartyArray updating, number = 1006;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:19:47:28.835;
-		getInfo(): String number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:20:44.856;
+		getInfo(): String updating, number = 1003;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:19:45:39.821;
+		getSimCount(): Integer number = 1008;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:19:24:30.715;
 		pcnt(i: Integer): String protected, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:09.937;
 		streak(): String protected, number = 1007;
@@ -328,6 +336,10 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:17:21:12.900;
 		runPoll_talbot__08_31to07_top() number = 1005;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:59:34.311;
+		runPoll_verian__08_12to16() number = 1007;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:19:15:16.262;
+		runWorkerBenchmark() number = 1008;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:18:50:56.224;
 	)
 	ProcessControl completeDefinition
 	(
@@ -529,6 +541,53 @@ databaseDefinitions
 typeSources
 	MonteCarloMultiSchema (
 	jadeMethodSources
+benchmarkWorkerApp
+{
+benchmarkWorkerApp() updating;
+
+vars
+	randPoll 	: RandomisedPoll;
+	simResult 	: SimulationResult;
+	seed		: Integer;
+	time		: TimeStamp;
+	i			: Integer;
+	objArr		: ObjectArray;
+begin
+	thePoll := Poll.firstSharedTransientInstance;
+
+	time := app.actualTime();
+	
+	foreach i in 1 to 1000 do
+		//if SimulationResult.instances.size() > 5000 then
+		//	app.doWindowEvents(0);
+		//	continue;
+		//endif;
+	
+		randPoll := thePoll.createRandomisedPoll(seed);
+		simResult := randPoll.generateParties(1);
+		delete randPoll;
+	endforeach;
+	
+	write app.actualTime() - time;
+epilog
+	beginTransaction;
+	SimulationResult.instances.purge();
+	commitTransaction;
+
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	
+	create objArr transient;
+	Poll.allSharedTransientInstances(objArr, 0, true);
+	beginTransientTransaction;
+	objArr.purge();
+	commitTransientTransaction;
+	delete objArr;
+
+	terminate;
+end;
+}
 runSimulation
 {
 runSimulation(
@@ -579,12 +638,14 @@ begin
 	
 	i := 0;
 	
+	app.doWindowEvents(1000);
+	
 	while running do
 		
 		simResult := SimulationResult.firstInstance;
 		if simResult = null then
 			write "WARNING: No results ready";
-			app.doWindowEvents(100);
+			app.doWindowEvents(1000);
 			continue;
 		endif;
 		
@@ -595,30 +656,34 @@ begin
 		endif;
 	
 
-		if 		simResult.workerId = 1 then
-			p1.drawSeats(simResult.parties);
-		elseif 	simResult.workerId = 2 then
-			p2.drawSeats(simResult.parties);
-		elseif 	simResult.workerId = 3 then
-			p3.drawSeats(simResult.parties);
-		elseif 	simResult.workerId = 4 then
-			p4.drawSeats(simResult.parties);
-		elseif 	simResult.workerId = 5 then
-			p5.drawSeats(simResult.parties);
-		elseif 	simResult.workerId = 6 then
-			p6.drawSeats(simResult.parties);
-		elseif 	simResult.workerId = 7 then
-			p7.drawSeats(simResult.parties);
-		elseif 	simResult.workerId = 8 then
-			p8.drawSeats(simResult.parties);
+		if stats.getSimCount() mod 100 = 0 then
+			if 		simResult.workerId = 1 then
+				p1.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 2 then
+				p2.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 3 then
+				p3.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 4 then
+				p4.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 5 then
+				p5.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 6 then
+				p6.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 7 then
+				p7.drawSeats(simResult.parties);
+			elseif 	simResult.workerId = 8 then
+				p8.drawSeats(simResult.parties);
+			endif;
 		endif;
 		
 		stats.crunchNumbers(simResult.parties);
 		
-		patternArray := stats.findCommonPattern();
-		p0.drawSeats(patternArray);
-		patternArray.purge();
-		delete patternArray;
+		if stats.getSimCount() mod 1000 = 0 then
+			patternArray := stats.findCommonPattern();
+			p0.drawSeats(patternArray);
+			patternArray.purge();
+			delete patternArray;
+		endif;
 		
 		info.caption := stats.getInfo();
 
@@ -626,7 +691,9 @@ begin
 		delete simResult;
 		commitTransaction;
 
-		app.doWindowEvents(0);
+		//if stats.getSimCount() mod 10 = 0 then
+			app.doWindowEvents(0);
+		//endif;
 		
 		if not running then
 			break;
@@ -663,8 +730,8 @@ begin
 	thePoll := Poll.firstSharedTransientInstance;
 
 	while controller.running do
-		if SimulationResult.instances.size() > 100 then
-			app.doWindowEvents(5);
+		if SimulationResult.instances.size() > 5000 then
+			app.doWindowEvents(0);
 			continue;
 		endif;
 	
@@ -927,7 +994,12 @@ begin
 				continue;
 			endif;
 			
-			cur := figment.calculateQuotient();
+			if figment.lastQuotient <> 0 then
+				cur := figment.lastQuotient;
+			else
+				cur := figment.calculateQuotient();
+				figment.lastQuotient := cur;
+			endif;
 			if cur > best then
 				currentHighest := figment;
 				best := cur;
@@ -935,6 +1007,7 @@ begin
 		endforeach;
 		
 		currentHighest.seatsAllocated := currentHighest.seatsAllocated + 1;
+		currentHighest.lastQuotient := 0;
 		best := 0;
 	endforeach;
 	
@@ -1110,12 +1183,12 @@ end;
 }
 getInfo
 {
-getInfo() : String;
+getInfo() : String updating;
 
 vars
 
 begin
-	return 	"Simulations run: " & sims.String & CrLf &
+	infoString := 	"Simulations run: " & sims.String & CrLf &
 			"N+A wins: " & pcnt(winsNA) & CrLf &
 			"L+G+M wins: " & pcnt(winsLGM) & CrLf &
 			"NZF back: " & pcnt(countNZFBack) & CrLf &
@@ -1124,6 +1197,18 @@ begin
 			"Common result appeared: " & pcnt(countCommon) & CrLf &
 			"Unique results: " & pcnt(patternDict.size()) & CrLf &
 			"Last unique result: " & streak();
+			
+	return infoString;
+end;
+}
+getSimCount
+{
+getSimCount() : Integer;
+
+vars
+
+begin
+	return sims;
 end;
 }
 pcnt
@@ -1323,6 +1408,68 @@ epilog
 	delete app.thePoll;
 	commitTransientTransaction;
 	delete parliament;
+end;
+}
+runPoll_verian__08_12to16
+{
+runPoll_verian__08_12to16();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Verian 12-16 August";
+	app.thePoll.sampleSize := 1002;
+	
+	app.thePoll.addDatum("National", 37.0, Blue, true);
+	app.thePoll.addDatum("Act", 13.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 3.7, Black, false);
+	app.thePoll.addDatum("TOP", 0.6, Teal, false);
+	app.thePoll.addDatum("TPM", 2.6, DarkRed, true);
+	app.thePoll.addDatum("Green", 12.0, Green, true);
+	app.thePoll.addDatum("Labour", 29.0, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
+runWorkerBenchmark
+{
+runWorkerBenchmark();
+
+vars
+	//controller : Controller;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Verian 12-16 August";
+	app.thePoll.sampleSize := 1002;
+	
+	app.thePoll.addDatum("National", 37.0, Blue, true);
+	app.thePoll.addDatum("Act", 13.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 3.7, Black, false);
+	app.thePoll.addDatum("TOP", 0.6, Teal, false);
+	app.thePoll.addDatum("TPM", 2.6, DarkRed, true);
+	app.thePoll.addDatum("Green", 12.0, Green, true);
+	app.thePoll.addDatum("Labour", 29.0, Red, true);
+	commitTransientTransaction;
+
+	//beginTransientTransaction;
+	//create controller sharedTransient;
+	//controller.running := true;
+	//controller.workerId := 1;
+	//controller.pollName := app.thePoll.name;
+	//commitTransientTransaction;
+	//controlArray.add(controller);
+	
+	app.startApplication(currentSchema.name, "BenchmarkWorker");
 end;
 }
 	)

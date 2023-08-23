@@ -74,9 +74,9 @@ typeDefinitions
 			p7: ParliamentControl io; 
 			p8: ParliamentControl io; 
 			info: Label io) updating, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:20:20:29.356;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:33:33.986;
 		simulationWorkerApp(controller: Controller) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:20:20:37.305;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:28:17.551;
 		stopSimulation() updating, number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:54:13.398;
 	)
@@ -691,9 +691,9 @@ begin
 		delete simResult;
 		commitTransaction;
 
-		//if stats.getSimCount() mod 10 = 0 then
+		if stats.getSimCount() mod 100 = 0 then
 			app.doWindowEvents(0);
-		//endif;
+		endif;
 		
 		if not running then
 			break;
@@ -730,10 +730,10 @@ begin
 	thePoll := Poll.firstSharedTransientInstance;
 
 	while controller.running do
-		if SimulationResult.instances.size() > 5000 then
-			app.doWindowEvents(0);
-			continue;
-		endif;
+		//if SimulationResult.instances.size() > 5000 then
+		//	app.doWindowEvents(0);
+		//	continue;
+		//endif;
 	
 		randPoll := thePoll.createRandomisedPoll(seed);
 		simResult := randPoll.generateParties(controller.workerId);

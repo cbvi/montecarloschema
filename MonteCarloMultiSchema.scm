@@ -62,7 +62,7 @@ typeDefinitions
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:06:32.299;
 	jadeMethodDefinitions
 		benchmarkWorkerApp() updating, number = 1004;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:00:37.721;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:54:12.403;
 		runSimulation(
 			p0: ParliamentControl io; 
 			p1: ParliamentControl io; 
@@ -76,7 +76,7 @@ typeDefinitions
 			info: Label io) updating, number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:33:33.986;
 		simulationWorkerApp(controller: Controller) updating, number = 1003;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:28:17.551;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:19:52:53.457;
 		stopSimulation() updating, number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:15:54:13.398;
 	)
@@ -558,6 +558,11 @@ begin
 	time := app.actualTime();
 	
 	foreach i in 1 to 1000 do
+		if SimulationResult.countPersistentInstancesLimit(5000) = 5000 then
+			app.doWindowEvents(0);
+			continue;
+		endif;
+	
 		//if SimulationResult.instances.size() > 5000 then
 		//	app.doWindowEvents(0);
 		//	continue;
@@ -730,6 +735,10 @@ begin
 	thePoll := Poll.firstSharedTransientInstance;
 
 	while controller.running do
+		if SimulationResult.countPersistentInstancesLimit(5000) = 5000 then
+			app.doWindowEvents(0);
+			continue;
+		endif;
 		//if SimulationResult.instances.size() > 5000 then
 		//	app.doWindowEvents(0);
 		//	continue;

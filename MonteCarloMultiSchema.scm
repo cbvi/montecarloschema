@@ -24,6 +24,7 @@ typeHeaders
 	RandomisedPoll subclassOf DataModel highestSubId = 1, highestOrdinal = 1, number = 2125;
 	SimulationResult subclassOf DataModel highestSubId = 1, highestOrdinal = 3, number = 2126;
 	StatCollector subclassOf DataModel highestSubId = 1, highestOrdinal = 14, number = 2129;
+	ViableRange subclassOf DataModel highestOrdinal = 3, number = 2134;
 	StaleDataException subclassOf Exception transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2132;
 	UnknownPartyException subclassOf Exception transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2133;
 	GMonteCarloMultiSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2112;
@@ -33,11 +34,13 @@ typeHeaders
 	ParliamentControl subclassOf BaseControl transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 4, number = 2114;
 	ParliamentForm subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 15, number = 2118;
 	PatterniserDict subclassOf MemberKeyDictionary loadFactor = 66, number = 2131;
+	ViableRangeDict subclassOf MemberKeyDictionary loadFactor = 66, number = 2135;
 	FigmentArray subclassOf ObjectArray number = 2124;
 	PartyArray subclassOf ObjectArray number = 2117;
 	PollDataArray subclassOf ObjectArray number = 2121;
 membershipDefinitions
 	PatterniserDict of Patterniser;
+	ViableRangeDict of ViableRange;
 	FigmentArray of Figment;
 	PartyArray of Party;
 	PollDataArray of Datum;
@@ -296,9 +299,20 @@ typeDefinitions
 		getSimCount(): Integer number = 1008;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:19:24:30.715;
 		pcnt(i: Integer): String protected, number = 1001;
-		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:34:09.937;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:11:17:10:03.548;
 		streak(): String protected, number = 1007;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:18:09:31.426;
+	)
+	ViableRange completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:21:26:19.819;
+	attributeDefinitions
+		high:                          Real number = 3, ordinal = 3;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:21:26:54.272;
+		low:                           Real number = 2, ordinal = 2;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:21:26:47.470;
+		name:                          String[51] number = 1, ordinal = 1;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:21:26:37.482;
 	)
 	Exception completeDefinition
 	(
@@ -324,20 +338,42 @@ typeDefinitions
 	JadeScript completeDefinition
 	(
 	jadeMethodDefinitions
+		dumpmoe_composite() number = 1018;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:22:07:42.342;
+		dumpmoe_verian__10_07to10() number = 1016;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:20:52:17.883;
+		dumpmoel_guardian__10_04to08() number = 1015;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:20:50:28.428;
+		dumpmoel_reid__10_05to10() number = 1017;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:20:53:52.820;
+		runPoll_composite() number = 1019;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:22:53:03.753;
 		runPoll_curia__08_03to08() number = 1002;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:20:59:58.226;
 		runPoll_curia__08_03to08_top() number = 1006;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:16:29:05.384;
+		runPoll_curia__08_31to06() number = 1009;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:09:09:18:27:41.426;
+		runPoll_curia__10_01to04() number = 1011;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:11:17:00:00.703;
 		runPoll_guardian__08_02to06() number = 1003;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:21:35:55.577;
+		runPoll_guardian__10_04to08() number = 1012;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:20:42:23.809;
 		runPoll_reid__07_26to31() number = 1001;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:12:18:01:46.565;
+		runPoll_reid__10_05to10() number = 1013;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:11:22:24:25.457;
 		runPoll_talbot__08_31to07() number = 1004;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:14:17:21:12.900;
 		runPoll_talbot__08_31to07_top() number = 1005;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:59:34.311;
 		runPoll_verian__08_12to16() number = 1007;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:22:19:15:16.262;
+		runPoll_verian__09_30to03() number = 1010;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:11:16:54:56.175;
+		runPoll_verian__10_07to10() number = 1014;
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:11:22:29:36.329;
 		runWorkerBenchmark() number = 1008;
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:23:18:50:56.224;
 	)
@@ -459,6 +495,10 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "Carlin" "22.0.02" 2023:08:15:15:16:17.190;
 	)
+	ViableRangeDict completeDefinition
+	(
+		setModifiedTimeStamp "Carlin" "22.0.02" 2023:10:13:21:27:30.932;
+	)
 	List completeDefinition
 	(
 	)
@@ -493,6 +533,10 @@ memberKeyDefinitions
 		nzf;
 		tpm;
 		top;
+	)
+	ViableRangeDict completeDefinition
+	(
+		name;
 	)
 inverseDefinitions
 	data of Poll automatic parentOf myPoll of Datum manual;
@@ -537,6 +581,8 @@ databaseDefinitions
 		StaleDataException in "montecarlomultischema";
 		StatCollector in "montecarlomultischema";
 		UnknownPartyException in "montecarlomultischema";
+		ViableRange in "montecarlomultischema";
+		ViableRangeDict in "montecarlomultischema";
 	)
 typeSources
 	MonteCarloMultiSchema (
@@ -1227,7 +1273,7 @@ pcnt(i : Integer) : String protected;
 vars
 
 begin
-	return ((i / sims) * 100).roundedTo(1).String & "% (" & i.String & "/" & sims.String & ") ";
+	return ((i / sims) * 100).roundedTo(3).String & "% (" & i.String & "/" & sims.String & ") ";
 end;
 }
 streak
@@ -1243,6 +1289,246 @@ end;
 	)
 	JadeScript (
 	jadeMethodSources
+dumpmoe_composite
+{
+dumpmoe_composite();
+
+vars
+	datum : Datum;
+	
+	guardian : Poll;
+	verian : Poll;
+	reid : Poll;
+	
+	vr : ViableRange;
+	vrd : ViableRangeDict;
+begin
+	beginTransientTransaction;
+	create verian sharedTransient;
+	verian.name := "Verian 07-10 October";
+	verian.sampleSize := 1001;
+	
+	verian.addDatum("National", 37.0, Blue, true);
+	verian.addDatum("Act", 9.0, Yellow, true);
+	verian.addDatum("NZF", 6.0, Black, false);
+	verian.addDatum("TOP", 2.3, Teal, false);
+	verian.addDatum("TPM", 1.7, DarkRed, true);
+	verian.addDatum("Green", 14.0, Green, true);
+	verian.addDatum("Labour", 28.0, Red, true);
+	commitTransientTransaction;
+	
+	beginTransientTransaction;
+	create guardian sharedTransient;
+	guardian.name := "Guardian 04-08 October";
+	guardian.sampleSize := 1200;
+	
+	guardian.addDatum("National", 34.0, Blue, true);
+	guardian.addDatum("Act", 7.9, Yellow, true);
+	guardian.addDatum("NZF", 8.2, Black, false);
+	guardian.addDatum("TOP", 1.0, Teal, false);
+	guardian.addDatum("TPM", 1.9, DarkRed, true);
+	guardian.addDatum("Green", 10.6, Green, true);
+	guardian.addDatum("Labour", 30.3, Red, true);
+	commitTransientTransaction;
+	
+	beginTransientTransaction;
+	create reid sharedTransient;
+	reid.name := "Reid 05-10 October";
+	reid.sampleSize := 1000;
+	
+	reid.addDatum("National", 34.5, Blue, true);
+	reid.addDatum("Act", 8.8, Yellow, true);
+	reid.addDatum("NZF", 6.8, Black, false);
+	reid.addDatum("TOP", 2.2, Teal, false);
+	reid.addDatum("TPM", 2.7, DarkRed, true);
+	reid.addDatum("Green", 14.9, Green, true);
+	reid.addDatum("Labour", 27.5, Red, true);
+	commitTransientTransaction;
+	
+	create vrd transient;
+	
+	foreach datum in verian.data do
+		create vr transient;
+		vr.name := datum.name;
+		vr.low := datum.margin.low;
+		vr.high := datum.margin.high;
+		vrd.add(vr);
+	endforeach;
+	
+	//foreach datum in guardian.data do
+	//	vrd[datum.name].low := vrd[datum.name].low.max(datum.margin.low);
+	//	vrd[datum.name].high := vrd[datum.name].high.min(datum.margin.high);
+	//endforeach;
+	
+	foreach datum in reid.data do
+		vrd[datum.name].low := vrd[datum.name].low.max(datum.margin.low);
+		vrd[datum.name].high := vrd[datum.name].high.min(datum.margin.high);
+	endforeach;
+	
+	foreach vr in vrd do
+		write vr.name & " " & vr.low.roundedTo(2).String & " - " & vr.high.roundedTo(2).String;
+	endforeach;
+epilog
+	beginTransientTransaction;
+	delete guardian;
+	delete verian;
+	delete reid;
+	vrd.purge();
+	delete vrd;
+	commitTransientTransaction;
+end;
+}
+dumpmoe_verian__10_07to10
+{
+dumpmoe_verian__10_07to10();
+
+vars
+	datum : Datum;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Verian 07-10 October";
+	app.thePoll.sampleSize := 1001;
+	
+	app.thePoll.addDatum("National", 37.0, Blue, true);
+	app.thePoll.addDatum("Act", 9.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 6.0, Black, false);
+	app.thePoll.addDatum("TOP", 2.3, Teal, false);
+	app.thePoll.addDatum("TPM", 1.7, DarkRed, true);
+	app.thePoll.addDatum("Green", 14.0, Green, true);
+	app.thePoll.addDatum("Labour", 28.0, Red, true);
+	commitTransientTransaction;
+
+	foreach datum in app.thePoll.data do
+		write datum.name & Tab & Tab & " " & datum.margin.low.roundedTo(2).String & " - " & datum.margin.high.roundedTo(2).String;
+	endforeach;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+end;
+}
+dumpmoel_guardian__10_04to08
+{
+dumpmoel_guardian__10_04to08();
+
+vars
+	datum : Datum;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Guardian 04-08 October";
+	app.thePoll.sampleSize := 1200;
+	
+	app.thePoll.addDatum("National", 34.0, Blue, true);
+	app.thePoll.addDatum("Act", 7.9, Yellow, true);
+	app.thePoll.addDatum("NZF", 8.2, Black, false);
+	app.thePoll.addDatum("TOP", 1.0, Teal, false);
+	app.thePoll.addDatum("TPM", 1.9, DarkRed, true);
+	app.thePoll.addDatum("Green", 10.6, Green, true);
+	app.thePoll.addDatum("Labour", 30.3, Red, true);
+	commitTransientTransaction;
+	
+	foreach datum in app.thePoll.data do
+		write datum.name & Tab & Tab & " " & datum.margin.low.roundedTo(2).String & " - " & datum.margin.high.roundedTo(2).String;
+	endforeach;
+	
+	//app.thePoll.inspectModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+end;
+}
+dumpmoel_reid__10_05to10
+{
+dumpmoel_reid__10_05to10();
+
+vars
+	datum : Datum;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Reid 05-10 October";
+	app.thePoll.sampleSize := 1000;
+	
+	app.thePoll.addDatum("National", 34.5, Blue, true);
+	app.thePoll.addDatum("Act", 8.8, Yellow, true);
+	app.thePoll.addDatum("NZF", 6.8, Black, false);
+	app.thePoll.addDatum("TOP", 2.2, Teal, false);
+	app.thePoll.addDatum("TPM", 2.7, DarkRed, true);
+	app.thePoll.addDatum("Green", 14.9, Green, true);
+	app.thePoll.addDatum("Labour", 27.5, Red, true);
+	commitTransientTransaction;
+
+	foreach datum in app.thePoll.data do
+		write datum.name & Tab & Tab & " " & datum.margin.low.roundedTo(2).String & " - " & datum.margin.high.roundedTo(2).String;
+	endforeach;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+end;
+}
+runPoll_composite
+{
+runPoll_composite();
+
+vars
+	parliament : ParliamentForm;
+	i : Integer;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Composite Reid/Verian";
+	app.thePoll.sampleSize := 999999999;
+	
+	app.thePoll.addDatum("National", 34.5, Blue, true);
+	app.thePoll.addDatum("Act", 11.6, Yellow, true);
+	app.thePoll.addDatum("NZF", 5.3, Black, false);
+	app.thePoll.addDatum("TOP", 1, Teal, false);
+	app.thePoll.addDatum("TPM", 2.5, DarkRed, true);
+	app.thePoll.addDatum("Green", 8.5, Green, true);
+	app.thePoll.addDatum("Labour", 29.0, Red, true);
+	commitTransientTransaction;
+	
+	beginTransientTransaction;
+	app.thePoll.data[1].margin.low := 34.01;
+	app.thePoll.data[1].margin.high := 37.45;
+	
+	app.thePoll.data[2].margin.low := 7.23;
+	app.thePoll.data[2].margin.high := 10.56;
+	
+	app.thePoll.data[3].margin.low := 5.24;
+	app.thePoll.data[3].margin.high := 7.47;
+	
+	app.thePoll.data[4].margin.low := 1.37;
+	app.thePoll.data[4].margin.high := 3.11;
+	
+	app.thePoll.data[5].margin.low := 1.7;
+	app.thePoll.data[5].margin.high := 2.5;
+	
+	app.thePoll.data[6].margin.low := 12.69;
+	app.thePoll.data[6].margin.high := 16.15;
+	
+	app.thePoll.data[7].margin.low := 25.22;
+	app.thePoll.data[7].margin.high := 30.27;
+	
+	foreach i in 1 to 7 do
+		app.thePoll.data[i].margin.generatePossibleRange();
+	endforeach;
+	commitTransientTransaction;
+	
+	app.thePoll.inspectModal;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete parliament;
+	commitTransientTransaction;
+end;
+}
 runPoll_curia__08_03to08
 {
 runPoll_curia__08_03to08();
@@ -1302,6 +1588,66 @@ epilog
 	delete parliament;
 end;
 }
+runPoll_curia__08_31to06
+{
+runPoll_curia__08_31to06();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Curia 31/08 to 06/09";
+	app.thePoll.sampleSize := 1000;
+	
+	app.thePoll.addDatum("National", 35.0, Blue, true);
+	app.thePoll.addDatum("Act", 14.3, Yellow, true);
+	app.thePoll.addDatum("NZF", 3.9, Black, false);
+	app.thePoll.addDatum("TOP", 2.7, Teal, false);
+	app.thePoll.addDatum("TPM", 2.9, DarkRed, true);
+	app.thePoll.addDatum("Green", 12.7, Green, true);
+	app.thePoll.addDatum("Labour", 26.5, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
+runPoll_curia__10_01to04
+{
+runPoll_curia__10_01to04();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Curia 01-04 October";
+	app.thePoll.sampleSize := 1000;
+	
+	app.thePoll.addDatum("National", 35.9, Blue, true);
+	app.thePoll.addDatum("Act", 9.1, Yellow, true);
+	app.thePoll.addDatum("NZF", 6.9, Black, false);
+	app.thePoll.addDatum("TOP", 2.9, Teal, false);
+	app.thePoll.addDatum("TPM", 3.7, DarkRed, true);
+	app.thePoll.addDatum("Green", 10.6, Green, true);
+	app.thePoll.addDatum("Labour", 27.9, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
 runPoll_guardian__08_02to06
 {
 runPoll_guardian__08_02to06();
@@ -1331,6 +1677,38 @@ epilog
 	delete parliament;
 end;
 }
+runPoll_guardian__10_04to08
+{
+runPoll_guardian__10_04to08();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Guardian 04-08 October";
+	app.thePoll.sampleSize := 1200;
+	
+	app.thePoll.addDatum("National", 34.0, Blue, true);
+	app.thePoll.addDatum("Act", 7.9, Yellow, true);
+	app.thePoll.addDatum("NZF", 8.2, Black, false);
+	app.thePoll.addDatum("TOP", 1.0, Teal, false);
+	app.thePoll.addDatum("TPM", 1.9, DarkRed, true);
+	app.thePoll.addDatum("Green", 10.6, Green, true);
+	app.thePoll.addDatum("Labour", 30.3, Red, true);
+	commitTransientTransaction;
+	
+	app.thePoll.inspectModal;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
 runPoll_reid__07_26to31
 {
 runPoll_reid__07_26to31();
@@ -1349,6 +1727,36 @@ begin
 	app.thePoll.addDatum("TPM", 2.7, DarkRed, true);
 	app.thePoll.addDatum("Green", 9.6, Green, true);
 	app.thePoll.addDatum("Labour", 32.3, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
+runPoll_reid__10_05to10
+{
+runPoll_reid__10_05to10();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Reid 05-10 October";
+	app.thePoll.sampleSize := 1000;
+	
+	app.thePoll.addDatum("National", 34.5, Blue, true);
+	app.thePoll.addDatum("Act", 8.8, Yellow, true);
+	app.thePoll.addDatum("NZF", 6.8, Black, false);
+	app.thePoll.addDatum("TOP", 2.2, Teal, false);
+	app.thePoll.addDatum("TPM", 2.7, DarkRed, true);
+	app.thePoll.addDatum("Green", 14.9, Green, true);
+	app.thePoll.addDatum("Labour", 27.5, Red, true);
 	commitTransientTransaction;
 
 	create parliament transient;
@@ -1438,6 +1846,66 @@ begin
 	app.thePoll.addDatum("TPM", 2.6, DarkRed, true);
 	app.thePoll.addDatum("Green", 12.0, Green, true);
 	app.thePoll.addDatum("Labour", 29.0, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
+runPoll_verian__09_30to03
+{
+runPoll_verian__09_30to03();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Verian 30 Sep - 3 Oct";
+	app.thePoll.sampleSize := 1000;
+	
+	app.thePoll.addDatum("National", 36.0, Blue, true);
+	app.thePoll.addDatum("Act", 10.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 6.0, Black, false);
+	app.thePoll.addDatum("TOP", 1.5, Teal, false);
+	app.thePoll.addDatum("TPM", 2.2, DarkRed, true);
+	app.thePoll.addDatum("Green", 13.0, Green, true);
+	app.thePoll.addDatum("Labour", 26.0, Red, true);
+	commitTransientTransaction;
+
+	create parliament transient;
+	parliament.showModal;
+epilog
+	beginTransientTransaction;
+	delete app.thePoll;
+	commitTransientTransaction;
+	delete parliament;
+end;
+}
+runPoll_verian__10_07to10
+{
+runPoll_verian__10_07to10();
+
+vars
+	parliament : ParliamentForm;
+begin
+	beginTransientTransaction;
+	create app.thePoll sharedTransient;
+	app.thePoll.name := "Verian 07-10 October";
+	app.thePoll.sampleSize := 1001;
+	
+	app.thePoll.addDatum("National", 37.0, Blue, true);
+	app.thePoll.addDatum("Act", 9.0, Yellow, true);
+	app.thePoll.addDatum("NZF", 6.0, Black, false);
+	app.thePoll.addDatum("TOP", 2.3, Teal, false);
+	app.thePoll.addDatum("TPM", 1.7, DarkRed, true);
+	app.thePoll.addDatum("Green", 14.0, Green, true);
+	app.thePoll.addDatum("Labour", 28.0, Red, true);
 	commitTransientTransaction;
 
 	create parliament transient;

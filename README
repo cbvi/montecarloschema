@@ -1,0 +1,5 @@
+This is a JADE app which performs Monte Carlo simulations across the margin of error on various political polls for the New Zealand election in 2023. 
+
+MontecarloSchem is the original version
+
+MonteCarloMultiSchema is a concurrent version
